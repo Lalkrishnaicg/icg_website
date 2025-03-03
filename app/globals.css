@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+body {
+  width: 100vw;
+  /* min-width: 100vh; */
+  margin: 2;
+  /* Ensure proper margin */
+  /* padding: 0% 2% 2% 2%; */
+
+  /* margin-right: 60px; */
+
+  /* Ensure no extra padding from browser defaults */
+
+  /* Set box-sizing to maintain consistency */
+  /* box-sizing: border-box; */
+
+  /* Prevent horizontal scroll issues */
+  overflow-x: hidden;
+
+  /* Set background color properly */
+  /* background-color: #FF0000;  */
+
+  /* Optional: Set height to prevent content overflow issues */
+  /* min-height: 100vh;   */
+  /* margin: 0; */
+  font-family: var(--font-k2d), sans-serif !important;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Webkit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 0.5px; /* Decrease scrollbar width */
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: #ff0000; /* Change track color */
+  border-radius: 3px;
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background: #ff0000; /* Change scrollbar color */
+  border-radius: 3px;
+}
+
+/* On hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5722; /* Slightly different color on hover */
+}
+
+/* Firefox (Limited support) */
+* {
+  scrollbar-width: none;
+  scrollbar-color: #222953 #fc1515;
+}
