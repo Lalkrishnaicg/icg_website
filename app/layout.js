@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body className={k2dFont.className}>
         <ThemeProviderClient theme={theme}>
           <Suspense fallback={<LoaderPage />}>
-            <Header />
+            {/* <Header /> */}
             {children}
           </Suspense>{" "}
         </ThemeProviderClient>

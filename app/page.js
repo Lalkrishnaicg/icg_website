@@ -5,6 +5,7 @@ import Footer from "@/components/mainpage/footer";
 import FooterDetailed from "@/components/mainpage/footerDetails";
 import LoaderPage from "@/components/loaderPage";
 import Loader from "@/components/loader";
+import Services from "@/components/mainpage/services";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       {/* <LoaderPage /> */}
       <Loader />
       <Hero />
+      <Services />
       <FooterDetailed />
     </>
   );

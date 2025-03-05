@@ -149,11 +149,11 @@ const Header = () => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo */}
         <Link href="/">
-          <Image src="/assets/icg.png" alt="logo" width={150} height={80} />
+          <Image src="/assets/icg.png" alt="logo" width={40} height={40} />
         </Link>
 
         {/* Desktop Navigation */}
-        <Box sx={{ display: { xs: "none", lg: "flex" }, gap: 3 }}>
+        {/* <Box sx={{ display: { xs: "none", lg: "flex" }, gap: 3 }}>
           {menuData.map((menuItem, index) => (
             <Box key={index}>
               {menuItem.path ? (
@@ -198,7 +198,7 @@ const Header = () => {
               )}
             </Box>
           ))}
-        </Box>
+        </Box> */}
 
         {/* Sign In / Sign Up & Theme Toggler */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
