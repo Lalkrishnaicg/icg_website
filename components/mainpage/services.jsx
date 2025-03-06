@@ -52,7 +52,15 @@ const Services = () => {
           </Box>
 
           {/* Service 2 */}
-          <Box sx={{ py: 5, width: 600, height: 400, border: 1 }}>
+          <Box
+            sx={{
+              py: 5,
+              width: 600,
+              height: 400,
+              border: 1,
+              borderColor: "#0606f9",
+            }}
+          >
             <Typography variant="h4" sx={{ mb: 2 }}>
               Financial
             </Typography>

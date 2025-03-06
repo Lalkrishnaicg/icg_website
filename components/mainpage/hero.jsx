@@ -63,7 +63,7 @@ const Hero = () => {
                     component={Link}
                     href="#"
                     sx={{
-                      border: "2px solid white", // Adjust border thickness and color
+                      border: "2px solid #0606f9", // Adjust border thickness and color
                       borderRadius: "8px", // Optional: Make corners rounded
                       // "&:hover": {
                       borderColor: "#0606f9", // Change border color on hover
@@ -112,6 +112,7 @@ const Hero = () => {
           justifyContent: "center",
           justifyItems: "center",
           // bgcolor: "black",
+          zIndex: 1000,
         }}
       >
         <Navbar />
