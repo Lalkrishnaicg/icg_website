@@ -1,8 +1,17 @@
 "use client";
-import { Box, Container, Typography, Button, Stack, Grid } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Stack,
+  Grid,
+  IconButton,
+} from "@mui/material";
 import Link from "next/link";
 import Navbar from "../navbar";
 import { useEffect, useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Hero = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -21,9 +30,63 @@ const Hero = () => {
   // Dynamic transformations based on scroll
   const zoomScale = 1 + scrollPosition * 0.00008; // Slight zoom-in effect
   const rotationAngle = Math.max(-10 + scrollPosition * 0.04, -20); // Gradually reduce the angle
+
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
-      {" "}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "start",
+          //     bgcolor: "#f8f9fa",
+          p: 2,
+          position: "relative",
+          mt: 2,
+          left: 40,
+        }}
+      >
+        {/* Expandable Box */}
+        <Box
+          sx={{
+            p: 1,
+            borderRadius: 6,
+            cursor: "pointer",
+            bgcolor: "white",
+            boxShadow: 2,
+            transition: "width 0.3s ease",
+            width: expanded ? 450 : 180,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            height: 30,
+            overflow: "hidden",
+          }}
+          onClick={() => setExpanded(!expanded)}
+        >
+          {/* ICG Spotlight text stays fixed */}
+          <Typography fontSize={17} sx={{ flexShrink: 0 }}>
+            ICG <span style={{ color: "red" }}>S</span>potlight 💡
+          </Typography>
+
+          {/* Expanded content */}
+          {expanded && (
+            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+              <Typography fontSize={17} sx={{ color: "black" }}>
+                Finance
+              </Typography>
+              <Typography fontSize={17}>Legal</Typography>
+              <Typography fontSize={17}>Service</Typography>
+
+              {/* Close Icon */}
+              <IconButton onClick={() => setExpanded(false)} sx={{ p: 0 }}>
+                <CloseIcon sx={{ fontSize: 13 }} />
+              </IconButton>
+            </Box>
+          )}
+        </Box>
+      </Box>
       {/* Navbar at the Bottom */}
       <Box>
         {/* Main Content */}
@@ -38,7 +101,7 @@ const Hero = () => {
           <Grid container spacing={4} alignItems="center">
             {/* Left Section (Text) */}
             <Grid item xs={12} md={6}>
-              <Box sx={{ mt: 15 }}>
+              <Box sx={{ mt: 6 }}>
                 <Typography
                   variant="h6"
                   sx={{ color: "text.secondary", mb: 4 }}
@@ -82,7 +145,7 @@ const Hero = () => {
             <Grid item xs={12} md={6}>
               <Box
                 sx={{
-                  mt: 14,
+                  mt: 1,
                   height: "400px",
                   backgroundImage: "url('/assets/hero_image1.png')",
                   backgroundSize: "cover",

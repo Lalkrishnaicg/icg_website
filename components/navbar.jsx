@@ -44,7 +44,7 @@ const Navbar = () => {
         {/* Right Side - Menu Button */}
         <Box
           sx={{
-            bgcolor: " #ffe6e6",
+            bgcolor: "#dde4f0",
             justifyContent: "center",
             display: "flex",
             justifyItems: "center",

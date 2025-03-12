@@ -60,7 +60,7 @@ const AssistSection = () => {
         md={6}
         xs={12}
         sx={{
-          backgroundColor: "#98D8EF",
+          background: "#dddcf5",
           display: "flex",
           alignItems: "start",
           height: "100%",
@@ -77,7 +77,7 @@ const AssistSection = () => {
             marginBottom: 2,
           }}
         >
-          LET'S TALK
+          LET<span style={{color:"red"}}>'</span>S TALK
         </Typography>
         <Typography
           sx={{

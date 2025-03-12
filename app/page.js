@@ -7,9 +7,11 @@ import LoaderPage from "@/components/loaderPage";
 import Loader from "@/components/loader";
 import Services from "@/components/mainpage/services";
 import GlobalSerivce from "@/components/mainpage/globalService";
-import QuoteIcg from "@/components/mainpage/quoteIcg";
+import QuoteIcg from "@/components/mainpage/heighlight";
 import ExpertServices from "@/components/mainpage/expertServices";
 import AssistSection from "@/components/mainpage/assistSection";
+import Heiglight from "@/components/mainpage/heighlight";
+import TopHeader from "@/components/mainpage/topHeader";
 
 export default function Home() {
   return (
@@ -18,14 +20,19 @@ export default function Home() {
       {/* <HeaderTest /> */}
       {/* <LoaderPage /> */}
       <Loader />
+      <TopHeader />
       <Hero />
       <GlobalSerivce />
       {/* <QuoteIcg /> */}
 
       <AssistSection />
+
+      <Heiglight />
       <ExpertServices />
       <Services />
+
       <FooterDetailed />
+      <Footer />
     </>
   );
 }
