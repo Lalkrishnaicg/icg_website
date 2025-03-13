@@ -80,13 +80,13 @@ const InfiniteCarousel = () => {
         position: "relative",
         margin: "auto",
         width: "90%",
-        maxWidth: 1400,
+        maxWidth: 1200,
       }}
     >
       {/* Left Arrow */}
       <IconButton
         onClick={moveLeft}
-        sx={{ position: "absolute", left: 20, color: "black", zIndex: 10 }}
+        sx={{ position: "absolute", left: -60, color: "black", zIndex: 10 }}
       >
         <ArrowBackIos />
       </IconButton>
@@ -193,7 +193,7 @@ const InfiniteCarousel = () => {
       {/* Right Arrow */}
       <IconButton
         onClick={moveRight}
-        sx={{ position: "absolute", right: 20, color: "black", zIndex: 10 }}
+        sx={{ position: "absolute", right: -60, color: "black", zIndex: 10 }}
       >
         <ArrowForwardIos />
       </IconButton>

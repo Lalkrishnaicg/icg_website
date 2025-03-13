@@ -11,7 +11,7 @@ const GlobalService = () => {
   const { scrollYProgress } = useScroll();
 
   // Move boxes up as user scrolls down
-  const translateY = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [0, -900]);
 
   // Service Data with Icons
   const services = [

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
-  Typography,
   IconButton,
   Drawer,
   List,
@@ -13,6 +12,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -25,76 +25,47 @@ const Navbar = () => {
     <Box
       position="fixed"
       sx={{
-        //   padding: "3px",
-        // width: 150,
         bgcolor: "transparent",
-        // bgcolor: "rgba(255, 255, 255, 0.9)", // Transparent background
-        backdropFilter: "blur(10px)", // Glass effect
-        WebkitBackdropFilter: "blur(10px)", // Safari support
-        borderRadius: "20px", // Optional rounded corners
-        // padding: "10px 20px", // Add some padding
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.4)", // Soft shadow
-        //  backgroundColor: " #ff0000",
-        // color: "white",
+        backdropFilter: "blur(10px)",
+        borderRadius: "20px",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.4)",
       }}
     >
-      <Toolbar sx={{ display: "flex", gap: 0 }}>
-        {/* Left Side - Logo / Title */}
+      {/* Animated Toolbar */}
+      <motion.div
+        animate={{ x: open ? -200 : 0 }} // Moves left when the drawer opens
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        <Toolbar sx={{ display: "flex", gap: 0 }}>
+          {/* Menu Button */}
+          <Box
+            sx={{
+              bgcolor: "#dde4f0",
+              display: "flex",
+              justifyContent: "center",
+              width: 50,
+              borderRadius: 3,
+              "&:hover": { background: "#ff1a1a" },
+            }}
+          >
+            <IconButton color="black" onClick={toggleDrawer(true)}>
+              <MenuIcon sx={{ fontSize: 32, color: "black" }} />
+            </IconButton>
+          </Box>
 
-        {/* Right Side - Menu Button */}
-        <Box
-          sx={{
-            bgcolor: "#dde4f0",
-            justifyContent: "center",
-            display: "flex",
-            justifyItems: "center",
-            width: 50,
-            borderRadius: 3,
-            "&:hover": {
-              background: "#ff1a1a",
-            },
-          }}
-        >
-          {" "}
-          <IconButton color="black" onClick={toggleDrawer(true)}>
-            <MenuIcon
-              sx={{ fontSize: 32, color: "black" }}
-              style={
-                {
-                  // color: "#0606f9",
-                  // "&:hover": {
-                  //   backgroundColor: "#fff",
-                  // },
-                }
-              }
-            />
-          </IconButton>
-        </Box>
-
-        {/* <Box
-          sx={{
-            backgroundImage: `url("/assets/icg.png")`, // Correct way to reference an image
-            backgroundSize: "cover", // Ensures the image covers the box
-            backgroundPosition: "center", // Centers the image
-            backgroundRepeat: "no-repeat", // Prevents repetition
-            width: "150px", // Adjust width
-            height: "50px", // Adjust height as needed
-          }}
-        ></Box> */}
-        {/* <Typography variant="h6" sx={{ fontWeight: "bold", letterSpacing: 1 }}>
-          ICG
-        </Typography> */}
-        <Box
-          sx={{
-            backgroundImage: `url("/assets/icg.png")`, // Correct way to reference an image
-            backgroundSize: "cover", // Ensures the image covers the box
-            backgroundPosition: "center", // Centers the image
-            backgroundRepeat: "no-repeat", // Prevents repetition
-            width: "80px",
-            height: "80px",
-          }}
-        ></Box>
-      </Toolbar>
+          {/* Logo */}
+          <Box
+            sx={{
+              backgroundImage: `url("/assets/icg.png")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              width: "80px",
+              height: "80px",
+            }}
+          ></Box>
+        </Toolbar>
+      </motion.div>
 
       {/* Full-Screen Drawer */}
       <Drawer
@@ -103,8 +74,8 @@ const Navbar = () => {
         onClose={toggleDrawer(false)}
         sx={{
           "& .MuiDrawer-paper": {
-            width: "100vw", // Full screen width
-            height: "100vh", // Full screen height
+            width: "100vw",
+            height: "100vh",
             backgroundColor: "white",
             color: "black",
             display: "flex",
@@ -124,16 +95,26 @@ const Navbar = () => {
           </IconButton>
         </Box>
 
-        {/* Navigation Items */}
+        {/* Navigation Items (Animated) */}
         <List sx={{ textAlign: "center" }}>
-          {["Home", "About", "Services", "Contact"].map((text, index) => (
-            <ListItem button key={index} onClick={toggleDrawer(false)}>
-              <ListItemText
-                primary={text}
-                sx={{ textAlign: "center", fontSize: "1.5rem" }}
-              />
-            </ListItem>
-          ))}
+          <AnimatePresence>
+            {["Home", "About", "Services", "Contact"].map((text, index) => (
+              <motion.div
+                key={text}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <ListItem button onClick={toggleDrawer(false)}>
+                  <ListItemText
+                    primary={text}
+                    sx={{ textAlign: "center", fontSize: "1.5rem" }}
+                  />
+                </ListItem>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </List>
       </Drawer>
     </Box>

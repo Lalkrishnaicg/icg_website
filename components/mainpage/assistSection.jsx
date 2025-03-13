@@ -1,5 +1,13 @@
-import { Grid, Box, Typography, TextField, MenuItem } from "@mui/material";
+import {
+  Grid,
+  Box,
+  Typography,
+  TextField,
+  MenuItem,
+  Button,
+} from "@mui/material";
 import React from "react";
+import SendIcon from "@mui/icons-material/Send";
 
 const AssistSection = () => {
   return (
@@ -7,7 +15,7 @@ const AssistSection = () => {
       container
       sx={{
         width: "100%",
-        height: "90vh",
+        height: "95vh",
       }}
     >
       {/* Left Section with Background Image */}
@@ -77,7 +85,7 @@ const AssistSection = () => {
             marginBottom: 2,
           }}
         >
-          LET<span style={{color:"red"}}>'</span>S TALK
+          LET<span style={{ color: "red" }}>'</span>S TALK
         </Typography>
         <Typography
           sx={{
@@ -129,11 +137,60 @@ const AssistSection = () => {
           <TextField
             label="Let us know how we can help you?"
             multiline
-            rows={4}
+            rows={3}
             variant="outlined"
             fullWidth
             sx={{ backgroundColor: "white" }}
           />
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            mt: 3,
+          }}
+        >
+          <Button
+            id="btn"
+            variant="contained"
+            sx={{
+              padding: "10px 20px",
+              textTransform: "uppercase",
+              borderRadius: "8px",
+              fontSize: "17px",
+              fontWeight: "500",
+              bgcolor: "#082f54",
+              color: "white",
+              cursor: "pointer",
+              border: "1px solid #ffffff80",
+              transition: "0.5s ease",
+              userSelect: "none",
+              "&:hover, &:focus": {
+                color: "#ffffff",
+                background: "#008cff",
+                border: "1px solid #008cff",
+                textShadow:
+                  "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff",
+                boxShadow:
+                  "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+              },
+              "&:hover .icon": {
+                transform: "rotate(-90deg)", // Rotates the icon upwards
+              },
+            }}
+            endIcon={
+              <SendIcon
+                className="icon"
+                sx={{
+                  transition: "transform 0.3s ease-in-out",
+                }}
+              />
+            }
+          >
+            Submit
+          </Button>
         </Box>
       </Grid>
     </Grid>

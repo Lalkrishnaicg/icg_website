@@ -101,7 +101,7 @@ const Hero = () => {
           <Grid container spacing={4} alignItems="center">
             {/* Left Section (Text) */}
             <Grid item xs={12} md={6}>
-              <Box sx={{ mt: 6 }}>
+              <Box sx={{ mt: 4 }}>
                 <Typography
                   variant="h6"
                   sx={{ color: "text.secondary", mb: 4 }}
@@ -145,24 +145,35 @@ const Hero = () => {
             <Grid item xs={12} md={6}>
               <Box
                 sx={{
-                  mt: 1,
-                  height: "400px",
-                  backgroundImage: "url('/assets/hero_image1.png')",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
+                  mt: 0,
+                  height: "440px",
                   borderRadius: 2,
                   minHeight: 300,
-                  transform: `perspective(1000px) rotateY(${rotationAngle}deg) scale(${zoomScale})`,
+                  transform: `perspective(1300px) rotateY(${rotationAngle}deg) scale(${zoomScale})`,
                   transformOrigin: "center",
                   transition: "transform 0.3s ease-out",
                   boxShadow: "10px 10px 20px rgba(0,0,0,0.3)",
+                  overflow: "hidden", // Ensures video stays within the box
                 }}
-              />
+              >
+                <video
+                  src="/assets/trail_vid2.mp4" // Replace with your actual video path
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </Box>
             </Grid>
           </Grid>
         </Container>
       </Box>
+
       <Box
         sx={{
           // width: "100%",
@@ -176,6 +187,7 @@ const Hero = () => {
           justifyItems: "center",
           // bgcolor: "black",
           zIndex: 1000,
+          //  right: 7,
         }}
       >
         <Navbar />
