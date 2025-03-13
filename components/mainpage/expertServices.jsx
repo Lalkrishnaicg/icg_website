@@ -38,13 +38,13 @@ const services = [
   {
     id: 6,
     title: "Service 6",
-    image: "/assets/image_6.png",
+    image: "/assets/image_1.png",
     description: "Detailed info about Service 6",
   },
   {
     id: 7,
     title: "Service 7",
-    image: "/assets/image_7.png",
+    image: "/assets/image_2.png",
     description: "Detailed info about Service 7",
   },
 ];
@@ -154,13 +154,13 @@ const InfiniteCarousel = () => {
                     alt={service.title}
                     style={{
                       width: "100%",
-                      height: "90%",
+                      height: "100%",
                       objectFit: "cover",
                       borderTopLeftRadius: "8px",
                       borderTopRightRadius: "8px",
                     }}
                   />
-                  <Box sx={{ padding: "10px" }}>{service.title}</Box>
+                  {/* <Box sx={{ padding: "10px" }}>{service.title}</Box> */}
 
                   {/* Hover Content */}
                   {hoveredIndex === service.id && (

@@ -157,7 +157,7 @@ const Hero = () => {
                 }}
               >
                 <video
-                  src="/assets/trail_vid2.mp4" // Replace with your actual video path
+                  src="/assets/vid/trail_vid2.mp4" // Replace with your actual video path
                   autoPlay
                   loop
                   muted

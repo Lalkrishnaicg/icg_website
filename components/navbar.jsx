@@ -13,6 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { motion, AnimatePresence } from "framer-motion";
+import NavbarDrawer from "./navbarDrawer";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -68,55 +69,7 @@ const Navbar = () => {
       </motion.div>
 
       {/* Full-Screen Drawer */}
-      <Drawer
-        anchor="right"
-        open={open}
-        onClose={toggleDrawer(false)}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "white",
-            color: "black",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          },
-        }}
-      >
-        {/* Close Button */}
-        <Box sx={{ position: "absolute", top: 20, right: 20 }}>
-          <IconButton
-            onClick={toggleDrawer(false)}
-            style={{ color: "#0606f9" }}
-          >
-            <CloseIcon style={{ fontSize: 30, color: "#0606f9" }} />
-          </IconButton>
-        </Box>
-
-        {/* Navigation Items (Animated) */}
-        <List sx={{ textAlign: "center" }}>
-          <AnimatePresence>
-            {["Home", "About", "Services", "Contact"].map((text, index) => (
-              <motion.div
-                key={text}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <ListItem button onClick={toggleDrawer(false)}>
-                  <ListItemText
-                    primary={text}
-                    sx={{ textAlign: "center", fontSize: "1.5rem" }}
-                  />
-                </ListItem>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </List>
-      </Drawer>
+      <NavbarDrawer open={open} toggleDrawer={toggleDrawer} />
     </Box>
   );
 };

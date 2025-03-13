@@ -104,7 +104,7 @@ const AssistSection = () => {
             label="Name"
             variant="outlined"
             fullWidth
-            sx={{ marginBottom: 2, backgroundColor: "white" }}
+            sx={{ marginBottom: 2, backgroundColor: "white", borderRadius: 6 }}
           />
           <TextField
             label="Email"
@@ -158,7 +158,7 @@ const AssistSection = () => {
             sx={{
               padding: "10px 20px",
               textTransform: "uppercase",
-              borderRadius: "8px",
+              borderRadius: "16px",
               fontSize: "17px",
               fontWeight: "500",
               bgcolor: "#082f54",

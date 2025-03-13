@@ -10,6 +10,7 @@ import {
   CardContent,
 } from "@mui/material";
 import { Button, List, ListItem, ListItemText } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 
 const Heiglight = () => {
   const blogs = [
@@ -41,33 +42,155 @@ const Heiglight = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, p: 2, mt: 6 }}>
+    <Box sx={{ flexGrow: 1, p: 2, mt: 6, margin: 6 }}>
       <Grid container spacing={2}>
         {/* Left Side (6 columns) */}
         <Grid item xs={12} md={6}>
           <Grid container spacing={2}>
             {/* Top Left Section */}
             <Grid item xs={12}>
-              <Paper sx={{ p: 2, height: 300, bgcolor: "#dde4f0" }}>
-                <Typography variant="h4">Irish Consulting Group</Typography>
+              <Paper
+                sx={{ p: 2, height: 300, bgcolor: "#dde4f0", borderRadius: 6 }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center", // Aligns items vertically
+                    //   justifyContent: "space-between", // Ensures proper spacing
+                    width: "100%",
+                    flexWrap: "wrap", // Ensures responsiveness
+                    pl: 6,
+                    pt: 8,
+                    gap: 8,
+                  }}
+                >
+                  <Box>
+                    <Typography variant="h6">Irish Consulting Group</Typography>
+                    <Typography variant="h4" sx={{ pt: 2 }}>
+                      ICG <span style={{ fontSize: 30 }}>at</span> 2025
+                    </Typography>
+                  </Box>
+
+                  <Button
+                    id="btn"
+                    variant="contained"
+                    sx={{
+                      padding: "10px 20px",
+                      textTransform: "uppercase",
+                      borderRadius: "16px",
+                      fontSize: "17px",
+                      fontWeight: "500",
+                      bgcolor: "#082f54",
+                      color: "white",
+                      cursor: "pointer",
+                      border: "1px solid #ffffff80",
+                      transition: "0.5s ease",
+                      userSelect: "none",
+                      "&:hover, &:focus": {
+                        color: "#ffffff",
+                        background: "#008cff",
+                        border: "1px solid #008cff",
+                        textShadow:
+                          "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff",
+                        boxShadow:
+                          "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+                      },
+                      "&:hover .icon": {
+                        transform: "rotate(-90deg)", // Rotates the icon upwards
+                      },
+                    }}
+                    endIcon={
+                      <SendIcon
+                        className="icon"
+                        sx={{
+                          transition: "transform 0.3s ease-in-out",
+                        }}
+                      />
+                    }
+                  >
+                    Watch the video
+                  </Button>
+                </Box>
               </Paper>
             </Grid>
 
             {/* Bottom Left Section */}
-            <Grid item xs={12} sx={{ height: 300 }}>
-              {/* <Paper sx={{ p: 2, height: 150, bgcolor: "lightgreen" }}> */}
+            <Grid item xs={12} sx={{ height: 300, position: "relative" }}>
+              {/* Image */}
               <Box
                 component="img"
-                src="/assets/image_4.png" // Replace with your image URL
+                src="/assets/image_4.png"
                 alt="Cover"
                 sx={{
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
-                  borderRadius: 1,
+                  borderRadius: 6,
                 }}
-              />{" "}
-              {/* </Paper> */}
+              />
+
+              {/* Text Overlay */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  color: "white",
+                  fontSize: "1.9rem",
+                  fontWeight: "bold",
+                  opacity: 0.9,
+                  //    backgroundColor: "rgba(0, 0, 0, 0.0)", // Optional: Dark overlay for readability
+                  borderRadius: 6, // Matches the image border-radius
+                }}
+              >
+                Dummy Data
+                <Button
+                  id="btn"
+                  variant="contained"
+                  sx={{
+                    opacity: 1,
+                    padding: "10px 20px",
+                    textTransform: "uppercase",
+                    borderRadius: "16px",
+                    fontSize: "17px",
+                    fontWeight: "500",
+                    bgcolor: "#082f54",
+                    color: "white",
+                    cursor: "pointer",
+                    border: "1px solid #ffffff80",
+                    transition: "0.5s ease",
+                    userSelect: "none",
+                    "&:hover, &:focus": {
+                      color: "#ffffff",
+                      background: "#008cff",
+                      border: "1px solid #008cff",
+                      textShadow:
+                        "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff",
+                      boxShadow:
+                        "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+                    },
+                    "&:hover .icon": {
+                      transform: "rotate(-90deg)", // Rotates the icon upwards
+                    },
+                  }}
+                  endIcon={
+                    <SendIcon
+                      className="icon"
+                      sx={{
+                        transition: "transform 0.3s ease-in-out",
+                      }}
+                    />
+                  }
+                >
+                  Try Your self
+                </Button>
+              </Box>
             </Grid>
           </Grid>
         </Grid>
@@ -80,6 +203,7 @@ const Heiglight = () => {
               height: 600,
               bgcolor: "#dde4f0",
               overflow: "hidden",
+              borderRadius: 6,
             }}
           >
             <Typography variant="h5" fontWeight="bold" gutterBottom>
@@ -130,7 +254,48 @@ const Heiglight = () => {
             {/* View More Button */}
             {visibleIndex + 1 < blogs.length && (
               <Box sx={{ textAlign: "center", mt: 2 }}>
-                <Button variant="contained" onClick={handleViewMore}>
+                {/* <Button variant="contained" onClick={handleViewMore}>
+                  View More
+                </Button> */}
+                <Button
+                  id="btn"
+                  onClick={handleViewMore}
+                  variant="contained"
+                  sx={{
+                    opacity: 1,
+                    padding: "10px 20px",
+                    textTransform: "uppercase",
+                    borderRadius: "16px",
+                    fontSize: "17px",
+                    fontWeight: "500",
+                    bgcolor: "#082f54",
+                    color: "white",
+                    cursor: "pointer",
+                    border: "1px solid #ffffff80",
+                    transition: "0.5s ease",
+                    userSelect: "none",
+                    "&:hover, &:focus": {
+                      color: "#ffffff",
+                      background: "#008cff",
+                      border: "1px solid #008cff",
+                      textShadow:
+                        "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff",
+                      boxShadow:
+                        "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+                    },
+                    "&:hover .icon": {
+                      transform: "rotate(-90deg)", // Rotates the icon upwards
+                    },
+                  }}
+                  endIcon={
+                    <SendIcon
+                      className="icon"
+                      sx={{
+                        transition: "transform 0.3s ease-in-out",
+                      }}
+                    />
+                  }
+                >
                   View More
                 </Button>
               </Box>
