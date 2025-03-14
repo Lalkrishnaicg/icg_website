@@ -4,16 +4,21 @@ import React from "react";
 const Services = () => {
   return (
     <Grid
-      container
-      spacing={2}
-      sx={{ height: "100vh", overflow: "hidden", margin: 4 }}
+      // container
+      // spacing={2}
+      sx={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        justifyItems: "center",
+      }}
     >
       {/* Left Side: Fixed Heading */}
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={6} sx={{ height: "100vh" }}>
         <Box
           sx={{
             position: "sticky",
-            top: 2,
+            //   top: 2,
             height: "100vh", // Full viewport height
             display: "flex",
             alignItems: "center",
@@ -29,7 +34,7 @@ const Services = () => {
       </Grid>
 
       {/* Right Side: Scrollable Section */}
-      <Grid item xs={12} md={8} sx={{ height: "100vh", overflowY: "auto" }}>
+      <Grid item xs={12} md={6} sx={{ overflowY: "auto", height: "100vh" }}>
         <Box
           sx={{
             //  pr: 10,
@@ -43,24 +48,29 @@ const Services = () => {
           }}
         >
           {/* Service 1 */}
-          <Box sx={{ pt: 5, width: 600, height: 400, mt: 2, border: 1, pl: 6 }}>
+          <Box sx={{ pt: 5, width: 800, height: 700, border: 1, pl: 6 }}>
             <Typography variant="h4">Legal</Typography>
             <Typography>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut
               lorem nec erat egestas consectetur.
             </Typography>
+            <Box
+              sx={{
+                position: "relative",
+                width: "70%", // Adjust size as needed
+                height: "70%", // Adjust size as needed
+                backgroundImage: "url('/assets/image_6.jpg')",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                //  opacity: 0.3, // Adjust opacity level
+              }}
+            />
           </Box>
 
           {/* Service 2 */}
-          <Box
-            sx={{
-              py: 5,
-              width: 600,
-              height: 400,
-              border: 1,
-              borderColor: "#0606f9",
-            }}
-          >
+
+          <Box sx={{ pt: 5, width: 800, height: 700, border: 1, pl: 6 }}>
             <Typography variant="h4" sx={{ mb: 2 }}>
               Financial
             </Typography>
@@ -68,10 +78,22 @@ const Services = () => {
               Nulla facilisi. Proin tincidunt, lectus nec dapibus luctus, felis
               felis commodo urna.
             </Typography>
+            <Box
+              sx={{
+                position: "relative",
+                width: "70%", // Adjust size as needed
+                height: "70%", // Adjust size as needed
+                backgroundImage: "url('/assets/image_7.jpg')",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                //  opacity: 0.3, // Adjust opacity level
+              }}
+            />
           </Box>
 
           {/* Service 3 */}
-          <Box sx={{ py: 5, width: 600, height: 400, border: 1 }}>
+          <Box sx={{ pt: 5, width: 800, height: 700, border: 1, pl: 6 }}>
             <Typography variant="h4" sx={{ mb: 2 }}>
               Consulting
             </Typography>
@@ -79,6 +101,18 @@ const Services = () => {
               Nulla facilisi. Proin tincidunt, lectus nec dapibus luctus, felis
               felis commodo urna.
             </Typography>
+            <Box
+              sx={{
+                position: "relative",
+                width: "70%", // Adjust size as needed
+                height: "70%", // Adjust size as needed
+                backgroundImage: "url('/assets/image_8.jpg')",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                //  opacity: 0.3, // Adjust opacity level
+              }}
+            />
           </Box>
         </Box>
       </Grid>

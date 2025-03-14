@@ -35,19 +35,17 @@ const Hero = () => {
 
   return (
     <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "start",
-          //     bgcolor: "#f8f9fa",
           p: 2,
           position: "relative",
           mt: 2,
           left: 40,
         }}
       >
-        {/* Expandable Box */}
         <Box
           sx={{
             p: 1,
@@ -65,12 +63,10 @@ const Hero = () => {
           }}
           onClick={() => setExpanded(!expanded)}
         >
-          {/* ICG Spotlight text stays fixed */}
           <Typography fontSize={17} sx={{ flexShrink: 0 }}>
             ICG <span style={{ color: "red" }}>S</span>potlight 💡
           </Typography>
 
-          {/* Expanded content */}
           {expanded && (
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Typography fontSize={17} sx={{ color: "black" }}>
@@ -79,14 +75,13 @@ const Hero = () => {
               <Typography fontSize={17}>Legal</Typography>
               <Typography fontSize={17}>Service</Typography>
 
-              {/* Close Icon */}
               <IconButton onClick={() => setExpanded(false)} sx={{ p: 0 }}>
                 <CloseIcon sx={{ fontSize: 13 }} />
               </IconButton>
             </Box>
           )}
         </Box>
-      </Box>
+      </Box> */}
       {/* Navbar at the Bottom */}
       <Box>
         {/* Main Content */}
@@ -94,14 +89,30 @@ const Hero = () => {
           maxWidth="lg"
           sx={{
             flexGrow: 1,
-            display: "flex",
-            alignItems: "center",
+
+            //  mt: 12,
           }}
         >
-          <Grid container spacing={4} alignItems="center">
+          <Grid
+            container
+            spacing={4}
+            alignItems="center"
+            justifyContent="center"
+            sx={{ height: "100vh" }} // Ensures full viewport height
+          >
             {/* Left Section (Text) */}
-            <Grid item xs={12} md={6}>
-              <Box sx={{ mt: 4 }}>
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                justifyItems: "center",
+              }}
+            >
+              <Box>
                 <Typography
                   variant="h6"
                   sx={{ color: "text.secondary", mb: 4 }}
@@ -124,14 +135,14 @@ const Hero = () => {
                     variant="contained"
                     color="primary"
                     component={Link}
-                    href="#"
+                    href="contact-us"
                     sx={{
-                      border: "2px solid #0606f9", // Adjust border thickness and color
-                      borderRadius: "8px", // Optional: Make corners rounded
+                      border: "2px solid #0606f9",
+                      borderRadius: "8px",
                       // "&:hover": {
-                      borderColor: "#0606f9", // Change border color on hover
-                      backgroundColor: "white", // Optional: Change background on hover
-                      // color: "#0606f9", // Optional: Change text color on hover
+                      borderColor: "#0606f9",
+                      backgroundColor: "white",
+                      // color: "#0606f9",
                       //  },
                     }}
                   >
@@ -142,22 +153,27 @@ const Hero = () => {
             </Grid>
 
             {/* Right Section (Image) */}
-            <Grid item xs={12} md={6}>
+            {/* Right Section (Video) */}
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
               <Box
                 sx={{
-                  mt: 0,
-                  height: "440px",
+                  height: "420px",
+                  width: "600px",
                   borderRadius: 2,
-                  minHeight: 300,
                   transform: `perspective(1300px) rotateY(${rotationAngle}deg) scale(${zoomScale})`,
                   transformOrigin: "center",
                   transition: "transform 0.3s ease-out",
                   boxShadow: "10px 10px 20px rgba(0,0,0,0.3)",
-                  overflow: "hidden", // Ensures video stays within the box
+                  overflow: "hidden",
                 }}
               >
                 <video
-                  src="/assets/vid/trail_vid2.mp4" // Replace with your actual video path
+                  src="/assets/vid/trail_vid2.mp4"
                   autoPlay
                   loop
                   muted
@@ -178,15 +194,11 @@ const Hero = () => {
         sx={{
           // width: "100%",
           // position: "absolute",
-          //  bottom: 10,
-          // left: 0,
-          // zIndex: 1000,
-          mt: 8,
+          bottom: 0,
+          left: 0,
+          zIndex: 1000,
           display: "flex",
           justifyContent: "center",
-          justifyItems: "center",
-          // bgcolor: "black",
-          zIndex: 1000,
           //  right: 7,
         }}
       >

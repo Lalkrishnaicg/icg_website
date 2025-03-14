@@ -19,7 +19,7 @@
 body {
   width: 100vw;
   /* min-width: 100vh; */
-  margin: 2;
+  margin: "0px 0px 0px 0px ";
   /* Ensure proper margin */
   /* padding: 0% 2% 2% 2%; */
 

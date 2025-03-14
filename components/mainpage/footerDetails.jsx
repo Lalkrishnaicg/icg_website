@@ -16,7 +16,7 @@ import { CgMail } from "react-icons/cg";
 
 const FooterDetails = () => {
   return (
-    <Grid2 sx={{ backgroundColor: "#dde4f0", mx: 0, mt: 5, height: 700 }}>
+    <Grid2 sx={{ backgroundColor: "#dde4f0", mx: 0, mt: 15, height: 700 }}>
       <Box sx={{ backgroundColor: "#dde4f0" }}>
         <Grid2
           sx={{

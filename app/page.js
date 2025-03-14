@@ -25,11 +25,10 @@ export default function Home() {
       <GlobalSerivce />
       {/* <QuoteIcg /> */}
 
-      <AssistSection />
-
       <Heiglight />
       <ExpertServices />
       <Services />
+      {/* <AssistSection /> */}
 
       <FooterDetailed />
       <Footer />

@@ -42,7 +42,7 @@ const Heiglight = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, p: 2, mt: 6, margin: 6 }}>
+    <Box sx={{ flexGrow: 1, p: 2, mt: 0, margin: 6 }}>
       <Grid container spacing={2}>
         {/* Left Side (6 columns) */}
         <Grid item xs={12} md={6}>
@@ -91,7 +91,8 @@ const Heiglight = () => {
                         background: "#008cff",
                         border: "1px solid #008cff",
                         textShadow:
-                          "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff",
+                          "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
+
                         boxShadow:
                           "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
                       },
@@ -171,7 +172,8 @@ const Heiglight = () => {
                       background: "#008cff",
                       border: "1px solid #008cff",
                       textShadow:
-                        "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff",
+                        "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
+
                       boxShadow:
                         "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
                     },
@@ -279,7 +281,8 @@ const Heiglight = () => {
                       background: "#008cff",
                       border: "1px solid #008cff",
                       textShadow:
-                        "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff",
+                        "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
+
                       boxShadow:
                         "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
                     },

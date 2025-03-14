@@ -26,6 +26,7 @@ const Navbar = () => {
     <Box
       position="fixed"
       sx={{
+        bottom: 40,
         bgcolor: "transparent",
         backdropFilter: "blur(10px)",
         borderRadius: "20px",
