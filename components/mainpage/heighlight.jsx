@@ -12,6 +12,7 @@ import {
 import { Button, List, ListItem, ListItemText } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { motion } from "framer-motion";
+
 const Heiglight = () => {
   const blogs = [
     {
@@ -57,7 +58,7 @@ const Heiglight = () => {
                     display: "flex",
                     alignItems: "center",
                     width: "100%",
-                    flexWrap: "wrap", // Ensures responsiveness
+                    flexWrap: "wrap",
                     pl: 6,
                     pt: 8,
                     gap: 8,
@@ -96,7 +97,7 @@ const Heiglight = () => {
                           "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
                       },
                       "&:hover .icon": {
-                        transform: "rotate(-90deg)", // Rotates the icon upwards
+                        transform: "rotate(-90deg)",
                       },
                     }}
                     endIcon={

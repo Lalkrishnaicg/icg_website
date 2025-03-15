@@ -44,12 +44,12 @@ const AssistSection = () => {
             sx={{
               position: "absolute",
               width: "70%",
-              height: "70%", // Adjust size as needed
+              height: "70%",
               backgroundImage: "url('/assets/icg.png')",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
-              opacity: 0.3, // Adjust opacity level
+              opacity: 0.3,
             }}
           />
         </Grid>
@@ -63,8 +63,8 @@ const AssistSection = () => {
             display: "flex",
             alignItems: "start",
             height: "100%",
-            paddingLeft: "80px", // Adjust left padding for alignment
-            paddingTop: "40px", // Adjust top padding for spacing
+            paddingLeft: "80px",
+            paddingTop: "40px",
             flexDirection: "column",
           }}
         >

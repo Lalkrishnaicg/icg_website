@@ -62,6 +62,18 @@ const TopHeader = () => {
           gap: 7,
         }}
       >
+        <Link href="/">
+          <Box
+            sx={{
+              backgroundImage: `url("/assets/icg.png")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              width: "80px",
+              height: "80px",
+            }}
+          />
+        </Link>
         <Link href="/who-are-we">
           <Typography
             sx={{

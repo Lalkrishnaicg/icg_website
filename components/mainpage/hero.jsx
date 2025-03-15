@@ -11,7 +11,6 @@ import {
 import Link from "next/link";
 import Navbar from "../navbar";
 import { useEffect, useState } from "react";
-import CloseIcon from "@mui/icons-material/Close";
 
 const Hero = () => {
   const [scrollPosition, setScrollPosition] = useState(0);

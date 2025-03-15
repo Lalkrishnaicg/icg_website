@@ -7,6 +7,7 @@ import LoaderPage from "@/components/loaderPage";
 import Header from "@/components/mainpage/header";
 import Loader from "@/components/loader";
 import { ThemeProviderClient } from "@/components/themeClient";
+import TopHeader from "@/components/mainpage/topHeader";
 
 const k2dFont = K2D({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <ThemeProviderClient theme={theme}>
           <Suspense fallback={<LoaderPage />}>
             {/* <Header /> */}
+            <TopHeader />
             {children}
           </Suspense>{" "}
         </ThemeProviderClient>
