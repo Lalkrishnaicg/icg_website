@@ -1,86 +1,83 @@
 "use client";
-import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { Box, Grid, IconButton, Typography, Avatar } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
-const services = [
+const testimonials = [
   {
     id: 1,
-    title: "Service 1",
-    image: "/assets/image_1.png",
-    description: "Detailed info about Service 1",
+    name: "John Doe",
+    avatar: "/assets/avatar1.png",
+    testimonial: "Great service, highly recommend!",
+    detailedInfo: "John had a wonderful experience with our service.",
   },
   {
     id: 2,
-    title: "Service 2",
-    image: "/assets/image_2.png",
-    description: "Detailed info about Service 2",
+    name: "Jane Smith",
+    avatar: "/assets/avatar2.png",
+    testimonial: "Excellent support and fast response.",
+    detailedInfo: "Jane loved the quick response and support.",
   },
   {
     id: 3,
-    title: "Service 3",
-    image: "/assets/image_3.png",
-    description: "Detailed info about Service 3",
+    name: "Michael Brown",
+    avatar: "/assets/avatar3.png",
+    testimonial: "Best experience ever!",
+    detailedInfo: "Michael enjoyed our premium services.",
   },
   {
     id: 4,
-    title: "Service 4",
-    image: "/assets/image_4.png",
-    description: "Detailed info about Service 4",
+    name: "Emily White",
+    avatar: "/assets/avatar4.png",
+    testimonial: "Very satisfied with the quality.",
+    detailedInfo: "Emily found our service top-notch.",
   },
   {
     id: 5,
-    title: "Service 5",
-    image: "/assets/image_5.png",
-    description: "Detailed info about Service 5",
-  },
-  {
-    id: 6,
-    title: "Service 6",
-    image: "/assets/image_1.png",
-    description: "Detailed info about Service 6",
-  },
-  {
-    id: 7,
-    title: "Service 7",
-    image: "/assets/image_2.png",
-    description: "Detailed info about Service 7",
+    name: "Robert Green",
+    avatar: "/assets/avatar5.png",
+    testimonial: "Affordable and high-quality!",
+    detailedInfo: "Robert loved the balance of cost and quality.",
   },
 ];
 
-const VISIBLE_ITEMS = 5;
-
 const InfiniteCarousel = () => {
-  const [selectedIndex, setSelectedIndex] = useState(2); // Start at center
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const duplicatedTestimonials = [...testimonials, ...testimonials]; // Duplicate to enable smooth looping
 
-  // Loop items infinitely by shifting array
-  const getVisibleItems = () => {
-    const start = selectedIndex - 1;
-    return [...services, ...services];
-  };
+  // Auto-scroll every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      moveRight();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [selectedIndex]);
 
   const moveLeft = () => {
-    setSelectedIndex((prev) => (prev === 0 ? services.length - 1 : prev - 1));
+    setSelectedIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
   };
 
   const moveRight = () => {
-    setSelectedIndex((prev) => (prev === services.length - 1 ? 0 : prev + 1));
+    setSelectedIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   return (
     <Grid
       container
       sx={{
-        height: "500px",
+        height: "400px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
         margin: "auto",
-        width: "90%",
+        width: "75%",
         maxWidth: 1200,
+        mt: 4,
       }}
     >
       {/* Left Arrow */}
@@ -100,40 +97,46 @@ const InfiniteCarousel = () => {
           width: "100%",
           overflow: "hidden",
           position: "relative",
-          height: 400,
+          height: 300,
         }}
       >
         <motion.div
           key={selectedIndex}
-          animate={{ x: `-${(selectedIndex % services.length) * 180}px` }}
+          animate={{ x: `-${selectedIndex * 280}px` }} // Move each card by 280px (card width + gap)
           transition={{ type: "spring", stiffness: 150, damping: 15 }}
-          style={{ display: "flex", gap: "50px", position: "relative" }}
+          style={{
+            display: "flex",
+            gap: "30px",
+            position: "relative",
+            whiteSpace: "nowrap",
+          }}
         >
-          {getVisibleItems().map((service, index) => {
-            const isCenter = index === 2;
+          {duplicatedTestimonials.map((testimonial, index) => {
+            const actualIndex = index % testimonials.length;
+            const isCenter = actualIndex === selectedIndex;
 
             return (
               <motion.div
-                key={service.id}
-                onClick={() =>
-                  setSelectedIndex(
-                    (selectedIndex + index - 2) % services.length
-                  )
-                }
-                onMouseEnter={() => setHoveredIndex(service.id)}
+                key={index}
+                onClick={() => setSelectedIndex(actualIndex)}
+                onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 animate={{
-                  scale: isCenter ? 1.5 : 1,
-                  opacity: isCenter ? 1 : 1,
+                  scale: isCenter ? 1.2 : 1,
+                  opacity: isCenter ? 1 : 0.6,
                 }}
                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                style={{ cursor: "pointer", position: "relative" }}
+                style={{
+                  cursor: "pointer",
+                  position: "relative",
+                  width: "230px",
+                }}
               >
                 <Box
                   sx={{
-                    width: "250px",
-                    height: "320px",
-                    backgroundColor: "#dde4f0",
+                    width: "200px",
+                    height: "280px",
+                    backgroundColor: "#f5f5f5",
                     color: "black",
                     display: "flex",
                     flexDirection: "column",
@@ -142,44 +145,51 @@ const InfiniteCarousel = () => {
                     borderRadius: 2,
                     boxShadow: isCenter
                       ? "0px 10px 20px rgba(0,0,0,0.5)"
-                      : "0px 5px 10px rgba(0,0,0,0.5)",
+                      : "0px 5px 10px rgba(0,0,0,0.2)",
                     textAlign: "center",
-                    fontWeight: "bold",
+                    padding: "20px",
                     transition: "all 0.3s ease",
                     position: "relative",
                   }}
                 >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderTopLeftRadius: "8px",
-                      borderTopRightRadius: "8px",
+                  {/* Avatar */}
+                  <Avatar
+                    src={testimonial.avatar}
+                    sx={{
+                      width: 80,
+                      height: 80,
+                      mb: 2,
+                      border: "3px solid #007bff",
                     }}
                   />
-                  {/* <Box sx={{ padding: "10px" }}>{service.title}</Box> */}
+
+                  {/* Name */}
+                  <Typography variant="h6" fontWeight="bold">
+                    {testimonial.name}
+                  </Typography>
+
+                  {/* Testimonial Text */}
+                  <Typography variant="body2" color="gray">
+                    {testimonial.testimonial}
+                  </Typography>
 
                   {/* Hover Content */}
-                  {hoveredIndex === service.id && (
+                  {hoveredIndex === index && (
                     <Box
                       sx={{
                         position: "absolute",
                         bottom: "0",
                         backgroundColor: "black",
-                        color: "red",
+                        color: "white",
                         width: "100%",
                         padding: "10px",
                         borderBottomLeftRadius: "8px",
                         borderBottomRightRadius: "8px",
                         textAlign: "center",
-                        height: 150,
                       }}
                     >
                       <Typography variant="body2">
-                        {service.description}
+                        {testimonial.detailedInfo}
                       </Typography>
                     </Box>
                   )}

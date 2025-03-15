@@ -12,6 +12,7 @@ import ExpertServices from "@/components/mainpage/expertServices";
 import AssistSection from "@/components/mainpage/assistSection";
 import Heiglight from "@/components/mainpage/heighlight";
 import TopHeader from "@/components/mainpage/topHeader";
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
@@ -26,8 +27,11 @@ export default function Home() {
       {/* <QuoteIcg /> */}
 
       <Heiglight />
-      <ExpertServices />
+
+      {/* <Box sx={{ height: "100vh" }}> */}
       <Services />
+      <ExpertServices />
+      {/* </Box> */}
       {/* <AssistSection /> */}
 
       <FooterDetailed />

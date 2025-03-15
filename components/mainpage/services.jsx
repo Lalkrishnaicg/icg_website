@@ -11,6 +11,7 @@ const Services = () => {
         display: "flex",
         justifyContent: "center",
         justifyItems: "center",
+        mt: 6,
       }}
     >
       {/* Left Side: Fixed Heading */}

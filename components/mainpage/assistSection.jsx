@@ -39,23 +39,11 @@ const AssistSection = () => {
             position: "relative",
           }}
         >
-          {/* Main Content */}
-          {/* <Box
-          sx={{
-            fontSize: "24px",
-            fontWeight: "bold",
-            position: "relative",
-            zIndex: 2,
-          }}
-        >
-          Image Section
-        </Box> */}
-
           {/* Overlay Image with Low Opacity */}
           <Box
             sx={{
               position: "absolute",
-              width: "70%", // Adjust size as needed
+              width: "70%",
               height: "70%", // Adjust size as needed
               backgroundImage: "url('/assets/icg.png')",
               backgroundSize: "contain",

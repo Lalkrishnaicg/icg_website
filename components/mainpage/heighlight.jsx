@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { Button, List, ListItem, ListItemText } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-
+import { motion } from "framer-motion";
 const Heiglight = () => {
   const blogs = [
     {
@@ -42,7 +42,7 @@ const Heiglight = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, p: 2, mt: 0, margin: 6 }}>
+    <Box sx={{ flexGrow: 1, p: 2, margin: 6 }}>
       <Grid container spacing={2}>
         {/* Left Side (6 columns) */}
         <Grid item xs={12} md={6}>
@@ -55,8 +55,7 @@ const Heiglight = () => {
                 <Box
                   sx={{
                     display: "flex",
-                    alignItems: "center", // Aligns items vertically
-                    //   justifyContent: "space-between", // Ensures proper spacing
+                    alignItems: "center",
                     width: "100%",
                     flexWrap: "wrap", // Ensures responsiveness
                     pl: 6,
@@ -130,7 +129,7 @@ const Heiglight = () => {
                 }}
               />
 
-              {/* Text Overlay */}
+              {/* Text Overlay (Without affecting button) */}
               <Box
                 sx={{
                   position: "absolute",
@@ -145,17 +144,27 @@ const Heiglight = () => {
                   color: "white",
                   fontSize: "1.9rem",
                   fontWeight: "bold",
-                  opacity: 0.9,
-                  //    backgroundColor: "rgba(0, 0, 0, 0.0)", // Optional: Dark overlay for readability
-                  borderRadius: 6, // Matches the image border-radius
+                  // backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional for better text readability
+                  borderRadius: 6,
                 }}
               >
                 Dummy Data
+              </Box>
+
+              {/* Button (Placed separately to avoid overlay effect) */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  bottom: 20,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 2, // Ensures it's above the overlay
+                }}
+              >
                 <Button
                   id="btn"
                   variant="contained"
                   sx={{
-                    opacity: 1,
                     padding: "10px 20px",
                     textTransform: "uppercase",
                     borderRadius: "16px",
@@ -164,7 +173,7 @@ const Heiglight = () => {
                     bgcolor: "#082f54",
                     color: "white",
                     cursor: "pointer",
-                    border: "1px solid #ffffff80",
+                    //  border: "1px solid #ffffff80",
                     transition: "0.5s ease",
                     userSelect: "none",
                     "&:hover, &:focus": {
@@ -173,7 +182,6 @@ const Heiglight = () => {
                       border: "1px solid #008cff",
                       textShadow:
                         "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
-
                       boxShadow:
                         "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
                     },

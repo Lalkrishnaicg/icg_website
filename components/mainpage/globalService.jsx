@@ -103,6 +103,23 @@ const GlobalService = () => {
           </motion.div>
         ))}
       </Grid>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <motion.div
+          initial={{ y: 50, opacity: 0, scale: 1 }} // Start position
+          animate={{ y: 0, opacity: 1, scale: 1.2 }} // End position
+          transition={{ duration: 1, ease: "easeOut" }} // Smooth transition
+        >
+          <Typography sx={{ fontSize: "2.5rem" }}>
+            Let ICG make your business next level
+          </Typography>
+        </motion.div>
+      </Box>
     </Grid>
   );
 };
