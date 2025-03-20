@@ -109,66 +109,83 @@ const FooterDetails = () => {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              //  justifyContent: "space-between",
               alignItems: "center",
               borderRadius: 6,
               width: "90%",
             }}
           >
-            <Box sx={{ color: "black", fontSize: 28, textAlign: "center" }}>
-              Maze Of Obstacles,
-              <br /> Solutions Galore
-              <Box sx={{ marginTop: 7, fontSize: 28 }}></Box>
-              <Box sx={{ marginTop: 7, fontSize: 20 }}>
-                <Typography>Lets Go Social</Typography>
-                <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-                  <FaFacebookF />
-                  <PiInstagramLogoFill />
-                  <FaLinkedinIn />
-                  <BsTwitterX />
-                  <FaYoutube />
-                  <FaPinterest />
-                  <FaReddit />
-                  <FaTumblr />
+            <Box
+              sx={{
+                color: "black",
+                fontSize: 28,
+                textAlign: "center",
+              }}
+            >
+              <Box sx={{ display: "flex", gap: 2, flexDirection: "column" }}>
+                <Box sx={{ display: "flex" }}>
+                  <Typography
+                    sx={{
+                      color: "black",
+                      fontSize: 28,
+                      textAlign: "center",
+                      width: 600,
+                    }}
+                  >
+                    {" "}
+                    Maze Of Obstacles,
+                    <br /> Solutions Galore
+                  </Typography>
+                  <>
+                    <Box sx={{ color: "black", textAlign: "center" }}>
+                      <Typography sx={{ fontSize: 24, fontWeight: 600 }}>
+                        Updates
+                      </Typography>
+                      <Box sx={{ marginTop: 2, fontSize: 20 }}>
+                        <ul>Blog</ul>
+                        <ul>Vlogs</ul>
+                        <ul>Events</ul>
+                        <ul>News & PR</ul>
+                      </Box>
+                    </Box>
+
+                    <Box sx={{ color: "black", textAlign: "center" }}>
+                      <Typography sx={{ fontSize: 24, fontWeight: 600 }}>
+                        Irish Life
+                      </Typography>
+                      <Box sx={{ marginTop: 2, fontSize: 20 }}>
+                        <ul>Life@Iish</ul>
+                        <ul>Careers@Irish</ul>
+                        <ul>Local Locations</ul>
+                      </Box>
+                    </Box>
+                  </>
                 </Box>
-              </Box>
-            </Box>
-
-            <Box sx={{ color: "black", textAlign: "center" }}>
-              <Typography sx={{ fontSize: 24, fontWeight: 600 }}>
-                Updates
-              </Typography>
-              <Box sx={{ marginTop: 2, fontSize: 20 }}>
-                <ul>Blog</ul>
-                <ul>Vlogs</ul>
-                <ul>Events</ul>
-                <ul>News & PR</ul>
-              </Box>
-            </Box>
-
-            <Box sx={{ color: "black", textAlign: "center" }}>
-              <Typography sx={{ fontSize: 24, fontWeight: 600 }}>
-                Irish Life
-              </Typography>
-              <Box sx={{ marginTop: 2, fontSize: 20 }}>
-                <ul>Life@Iish</ul>
-                <ul>Careers@Irish</ul>
-                <ul>Local Locations</ul>
-              </Box>
-            </Box>
-
-            <Box sx={{ color: "black", textAlign: "center" }}>
-              <Typography sx={{ fontSize: 24, fontWeight: 600 }}>
-                Quick Links
-              </Typography>
-              <Box sx={{ marginTop: 2, fontSize: 20 }}>
-                <ul>Home</ul>
-                <ul>About Us</ul>
-                <ul>Study Abroad</ul>
-                <ul>Local Locations</ul>
-                <ul>Immigration</ul>
-                <ul>Visa application</ul>
-                <ul>Find course</ul>
+                <Typography
+                  sx={{ color: "black", fontSize: 14, textAlign: "center" }}
+                >
+                  Navigates the maze of obstacles with expert business
+                  solutions. Our team delivers results-driven strategies,
+                  proactive risk mitigation, and innovative guidance to drive
+                  your success. We prioritize collaboration, innovation, and
+                  integrity, ensuring excellence and transparency in everything
+                  we do.
+                </Typography>
+                <Box sx={{ marginTop: 7, fontSize: 20, textAlign: "start" }}>
+                  <Typography>Lets Go Social</Typography>
+                  <Box
+                    sx={{ display: "flex", justifyContent: "start", gap: 2 }}
+                  >
+                    <FaFacebookF />
+                    <PiInstagramLogoFill />
+                    <FaLinkedinIn />
+                    <BsTwitterX />
+                    <FaYoutube />
+                    <FaPinterest />
+                    <FaReddit />
+                    <FaTumblr />
+                  </Box>
+                </Box>
               </Box>
             </Box>
           </Box>

@@ -17,20 +17,20 @@ const Heiglight = () => {
   const blogs = [
     {
       id: 1,
-      title: "How to Improve Web Performance?",
+      title: "How to Improve Web Performance Ai?",
       description: "Learn the best practices to enhance your website speed.",
       image: "/assets/image_1.png",
     },
     {
       id: 2,
-      title: "React vs Next.js: Which One to Choose?",
+      title: "Bussiness data?",
       description:
         "A comparison of React and Next.js for modern web development.",
       image: "/assets/image_2.png",
     },
     {
       id: 3,
-      title: "Understanding Redux Toolkit in 5 Minutes",
+      title: "Bussiness data improve using AI?",
       description: "A quick guide to using Redux Toolkit efficiently.",
       image: "/assets/image_3.png",
     },
@@ -212,7 +212,7 @@ const Heiglight = () => {
             sx={{
               p: 3,
               height: 600,
-              bgcolor: "#dde4f0",
+              bgcolor: "#fff",
               overflow: "hidden",
               borderRadius: 6,
             }}
@@ -240,6 +240,8 @@ const Heiglight = () => {
                       transition: "all 0.3s ease-in-out",
                       overflow: "hidden",
                       flexShrink: 0,
+                      bgcolor: "white",
+                      color: "black",
                     }}
                   >
                     <CardMedia
@@ -249,12 +251,19 @@ const Heiglight = () => {
                       alt={blog.title}
                     />
                     <CardContent
-                      sx={{ display: index === 0 ? "block" : "none" }}
+                      sx={{
+                        display: index === 0 ? "block" : "none",
+                        color: "black",
+                      }}
                     >
-                      <Typography variant="h6" fontWeight="bold">
+                      <Typography
+                        variant="h6"
+                        fontWeight="bold"
+                        sx={{ color: "black" }}
+                      >
                         {blog.title}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography variant="body2" sx={{ color: "black" }}>
                         {blog.description}
                       </Typography>
                     </CardContent>

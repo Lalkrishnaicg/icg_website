@@ -19,7 +19,7 @@ const Footer = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Typography variant="body1">© 2024 Your Company</Typography>
+          <Typography variant="body1">© 2025 Irish Consulting Group</Typography>
           <Stack direction="row" spacing={2}>
             <Typography variant="body2">Privacy Policy</Typography>
             <Typography variant="body2">Terms of Service</Typography>

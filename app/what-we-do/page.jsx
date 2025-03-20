@@ -2,6 +2,7 @@
 import { Box, Grid, Typography, Modal, Backdrop, Fade } from "@mui/material";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Consulting from "@/components/what-we-do/consulting";
 
 const page = () => {
   const [open, setOpen] = useState(false);
@@ -57,7 +58,11 @@ const page = () => {
     setSelectedPerson(null);
   };
 
-  return <Grid>hi</Grid>;
+  return (
+    <Grid>
+      <Consulting />
+    </Grid>
+  );
 };
 
 export default page;

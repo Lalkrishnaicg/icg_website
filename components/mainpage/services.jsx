@@ -11,6 +11,7 @@ const Services = () => {
         display: "flex",
         justifyContent: "center",
         justifyItems: "center",
+        pt: 10,
       }}
     >
       {/* Left Side: Fixed Heading */}
@@ -25,6 +26,7 @@ const Services = () => {
             justifyContent: "center",
             border: "1px dotted",
             padding: 6,
+            //  pt: 10,
           }}
         >
           <Typography variant="h3" sx={{ fontWeight: "bold" }}>

@@ -25,7 +25,8 @@ const TopHeader = () => {
   return (
     <Box
       sx={{
-        border: "1px dotted",
+        border: "1px solid",
+        borderColor: "#D3D3D3", // Light gray border
         borderRadius: 5,
         mt: 2,
         zIndex: 1000,
@@ -36,11 +37,11 @@ const TopHeader = () => {
         width: "40%",
         height: 40,
         color: "black",
-        bgcolor: "#dde4f0",
+        bgcolor: "#fff",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.03)",
+        // boxShadow: "0px 2px 4px rgba(0.1, 0, 0, 0.1)",
         transition: "top 0.3s ease-in-out",
         userSelect: "none",
         "&:hover, &:focus": {
