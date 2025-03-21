@@ -15,19 +15,18 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarDrawer from "./navbarDrawer";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Use usePathname instead of useRouter
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname(); // Get current route path
+  const pathname = usePathname();
 
   const toggleDrawer = (state) => () => {
     setOpen(state);
   };
   // Close drawer on route change
-  // Close drawer on route change
   useEffect(() => {
-    setOpen(false); // Close drawer whenever pathname changes
+    setOpen(false);
   }, [pathname]);
 
   return (
