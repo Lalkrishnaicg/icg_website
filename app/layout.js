@@ -1,6 +1,6 @@
 import { K2D } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import theme from "@/components/theme";
 import { Suspense } from "react";
 import LoaderPage from "@/components/loaderPage";
@@ -8,6 +8,7 @@ import Header from "@/components/mainpage/header";
 import Loader from "@/components/loader";
 import { ThemeProviderClient } from "@/components/themeClient";
 import TopHeader from "@/components/mainpage/topHeader";
+import Navbar from "@/components/navbar";
 
 const k2dFont = K2D({
   subsets: ["latin"],
@@ -28,6 +29,17 @@ export default function RootLayout({ children }) {
             {/* <Header /> */}
             <TopHeader />
             {children}
+            <Box
+              sx={{
+                bottom: 0,
+                left: 0,
+                zIndex: 1000,
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Navbar />
+            </Box>
           </Suspense>{" "}
         </ThemeProviderClient>
       </body>

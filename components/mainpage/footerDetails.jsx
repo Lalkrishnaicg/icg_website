@@ -40,6 +40,12 @@ const FooterDetails = () => {
             alignItems: "center",
             flexDirection: "column",
             fontStyle: "italic",
+            backgroundImage: `url("/assets/contact_us_bg.jpg")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            // width: "80px",
+            // height: "80px",
           }}
         >
           <Typography sx={{ fontSize: 50, fontWeight: 500 }}>

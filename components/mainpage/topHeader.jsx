@@ -45,9 +45,9 @@ const TopHeader = () => {
         transition: "top 0.3s ease-in-out",
         userSelect: "none",
         "&:hover, &:focus": {
-          color: "#ffffff",
-          background: "#008cff",
-          border: "1px solid #008cff",
+          color: "black",
+          background: "#dde4f0",
+          border: "1px solid #dde4f0",
           textShadow: "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
           boxShadow:
             "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
@@ -81,13 +81,13 @@ const TopHeader = () => {
               position: "relative",
               "&:hover, &:focus": {
                 cursor: "pointer",
-                color: "#ffffff",
-                background: "#008cff",
-                border: "1px solid #008cff",
-                textShadow:
-                  "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
-                boxShadow:
-                  "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+                color: "black",
+                //  background: "#008cff",
+                //  border: "1px solid #008cff",
+                // textShadow:
+                //   "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
+                // boxShadow:
+                //   "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
               },
               "&:after": {
                 content: '""',
@@ -96,7 +96,7 @@ const TopHeader = () => {
                 bottom: -2,
                 width: "100%",
                 height: "2px",
-                backgroundColor: "#ffffff",
+                backgroundColor: "black",
                 transform: "scaleX(0)",
                 transition: "transform 0.3s ease-in-out",
               },
@@ -114,13 +114,13 @@ const TopHeader = () => {
               position: "relative",
               "&:hover, &:focus": {
                 cursor: "pointer",
-                color: "#ffffff",
-                background: "#008cff",
-                border: "1px solid #008cff",
-                textShadow:
-                  "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
-                boxShadow:
-                  "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+                color: "black",
+                // background: "#008cff",
+                // border: "1px solid #008cff",
+                // textShadow:
+                //   "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
+                // boxShadow:
+                //   "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
               },
               "&:after": {
                 content: '""',
@@ -129,7 +129,7 @@ const TopHeader = () => {
                 bottom: -2,
                 width: "100%",
                 height: "2px",
-                backgroundColor: "#ffffff",
+                backgroundColor: "black",
                 transform: "scaleX(0)",
                 transition: "transform 0.3s ease-in-out",
               },
@@ -147,13 +147,13 @@ const TopHeader = () => {
               position: "relative",
               "&:hover, &:focus": {
                 cursor: "pointer",
-                color: "#ffffff",
-                background: "#008cff",
-                border: "1px solid #008cff",
-                textShadow:
-                  "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
-                boxShadow:
-                  "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+                color: "black",
+                // background: "#008cff",
+                // border: "1px solid #008cff",
+                // textShadow:
+                //   "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
+                // boxShadow:
+                //   "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
               },
               "&:after": {
                 content: '""',
@@ -162,7 +162,7 @@ const TopHeader = () => {
                 bottom: -2,
                 width: "100%",
                 height: "2px",
-                backgroundColor: "#ffffff",
+                backgroundColor: "black",
                 transform: "scaleX(0)",
                 transition: "transform 0.3s ease-in-out",
               },

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -14,13 +14,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { motion, AnimatePresence } from "framer-motion";
 import NavbarDrawer from "./navbarDrawer";
+import Link from "next/link";
+import { usePathname } from "next/navigation"; // Use usePathname instead of useRouter
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname(); // Get current route path
 
   const toggleDrawer = (state) => () => {
     setOpen(state);
   };
+  // Close drawer on route change
+  // Close drawer on route change
+  useEffect(() => {
+    setOpen(false); // Close drawer whenever pathname changes
+  }, [pathname]);
 
   return (
     <Box
@@ -56,16 +64,18 @@ const Navbar = () => {
           </Box>
 
           {/* Logo */}
-          <Box
-            sx={{
-              backgroundImage: `url("/assets/icg.png")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              width: "80px",
-              height: "80px",
-            }}
-          ></Box>
+          <Link href="/">
+            <Box
+              sx={{
+                backgroundImage: `url("/assets/icg.png")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                width: "80px",
+                height: "80px",
+              }}
+            ></Box>
+          </Link>
         </Toolbar>
       </motion.div>
 

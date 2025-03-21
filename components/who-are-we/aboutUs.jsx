@@ -3,44 +3,44 @@ import { Box, Grid, Typography } from "@mui/material";
 
 const AboutUs = () => {
   return (
-    <Box sx={{ flexGrow: 1, p: 6, pt: 10 }}>
+    <Box sx={{ flexGrow: 1, p: 6, pt: 12 }}>
       <Grid container spacing={3} alignItems="center">
         {/* Left Side - Text Content */}
         <Grid item xs={12} md={6}>
           <Box>
             <Box
-            //   sx={{
-            //     position: "relative",
-            //     display: "inline-block",
-            //     padding: "20px 40px",
-            //     textAlign: "start",
-            //     "&::before": {
-            //       content: '""',
-            //       position: "absolute",
-            //       top: "-10px",
-            //       left: "-20px",
-            //       width: "120%",
-            //       height: "120%",
-            //       background: "#007BFF",
-            //       clipPath:
-            //         "polygon(5% 15%, 95% 5%, 100% 50%, 95% 95%, 5% 85%, 0% 50%)",
-            //       zIndex: -1,
-            //       borderRadius: "20px",
-            //       transform: "rotate(-3deg)",
-            //     },
-            //   }}
+              sx={{
+                position: "relative",
+                display: "inline-block",
+                //  padding: "20px 40px",
+                // textAlign: "start",
+                // "&::before": {
+                //   content: '""',
+                //   position: "absolute",
+                //   top: "-10px",
+                //   left: "-20px",
+                //   width: "120%",
+                //   height: "120%",
+                //   background: "#007BFF",
+                //   clipPath:
+                //     "polygon(5% 15%, 95% 5%, 100% 50%, 95% 95%, 5% 85%, 0% 50%)",
+                //   zIndex: -1,
+                //   borderRadius: "20px",
+                //   transform: "rotate(-3deg)",
+                // },
+              }}
             >
               <Typography
                 variant="h2"
                 sx={{
-                  fontWeight: "semi-bold",
-                  textTransform: "uppercase",
+                  //  fontWeight: "semi-bold",
+                  //   textTransform: "uppercase",
                   letterSpacing: "2px",
                   color: "black",
                   position: "relative",
                 }}
               >
-                About Us
+                About ICG
               </Typography>
             </Box>
             <Typography sx={{ pt: 2, fontSize: 22 }}>

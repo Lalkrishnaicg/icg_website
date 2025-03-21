@@ -73,12 +73,14 @@ const OurPeople = () => {
     <>
       <Grid>
         {/* IMAGE GALLERY SECTION */}
-        <Box sx={{ bgcolor: "#dde4f0", mt: 5 }}>
+        <Box sx={{ mt: 5 }}>
           <Typography
             sx={{
               display: "flex",
-              justifyContent: "center",
-              justifyItems: "center",
+              // justifyContent: "center",
+              // justifyItems: "center",
+              textAlign: "start",
+              pl: 13,
               fontSize: 44,
               textTransform: "uppercase",
               //   fontFamily: "'monospace', cursive",
@@ -88,7 +90,7 @@ const OurPeople = () => {
           >
             Our People
           </Typography>
-          <Box sx={{ width: "80%", margin: "auto", p: 4, pt: 7 }}>
+          <Box sx={{ width: "90%", margin: "auto", p: 2, pt: 7 }}>
             <Grid container spacing={2}>
               {people.map((person, index) => (
                 <Grid item xs={6} md={index < 2 ? 6 : 4} key={person.id}>
@@ -104,6 +106,9 @@ const OurPeople = () => {
                         position: "relative",
                         borderRadius: "10px",
                         overflow: "hidden",
+                        width: "80%",
+                        height: "300px",
+                        pt: 2,
                       }}
                     >
                       <Box

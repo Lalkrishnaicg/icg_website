@@ -1,4 +1,5 @@
 "use client";
+import WeBelieve from "@/components/aboutUs/weBelive";
 import AboutUs from "@/components/who-are-we/aboutUs";
 import OurPeople from "@/components/who-are-we/ourPeople";
 import { Box, Grid, Typography } from "@mui/material";
@@ -9,7 +10,7 @@ const page = () => {
     <Grid container sx={{ display: "flex", flexDirection: "column" }}>
       {/* ABOUT US SECTION */}
       <AboutUs />
-      <OurPeople />
+      <WeBelieve />
     </Grid>
   );
 };
