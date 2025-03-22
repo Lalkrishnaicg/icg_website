@@ -13,6 +13,9 @@ import AssistSection from "@/components/mainpage/assistSection";
 import Heiglight from "@/components/mainpage/heighlight";
 import TopHeader from "@/components/mainpage/topHeader";
 import { Box } from "@mui/material";
+import EntrepreneurSection from "@/components/mainpage/entrepreneurSection";
+import CarouselSection from "@/components/mainpage/carouselSection";
+import Insights from "@/components/mainpage/insights";
 
 export default function Home() {
   return (
@@ -21,19 +24,21 @@ export default function Home() {
       {/* <HeaderTest /> */}
       {/* <LoaderPage /> */}
       <Loader />
-      <TopHeader />
+      {/* <TopHeader /> */}
       <Hero />
-      <GlobalSerivce />
+      {/* <GlobalSerivce /> */}
       {/* <QuoteIcg /> */}
+      <EntrepreneurSection />
 
+      <CarouselSection />
       <Heiglight />
 
       {/* <Box sx={{ height: "100vh" }}> */}
-      <Services />
-      <ExpertServices />
+      {/* <Services /> */}
+      {/* <ExpertServices /> */}
       {/* </Box> */}
       {/* <AssistSection /> */}
-
+      <Insights />
       <FooterDetailed />
       <Footer />
     </>

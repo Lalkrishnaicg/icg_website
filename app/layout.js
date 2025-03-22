@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <ThemeProviderClient theme={theme}>
           <Suspense fallback={<LoaderPage />}>
             {/* <Header /> */}
-            <TopHeader />
+            {/* <TopHeader /> */}
             {children}
             <Box
               sx={{

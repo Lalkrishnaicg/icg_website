@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import Navbar from "../navbar";
 import { useEffect, useState } from "react";
+import GetInTouchBox from "../getInTouchBox";
 
 const Hero = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -65,15 +66,25 @@ const Hero = () => {
             >
               <Box>
                 <Typography
-                  variant="h6"
-                  sx={{ color: "text.secondary", mb: 4 }}
+                  //  variant="h6"
+                  sx={{
+                    color: "text.secondary",
+                    mb: { md: 4, xs: 0 },
+                    mt: { md: 0, xs: 15 },
+                    fontSize: { md: 22, xs: 18 },
+                  }}
                 >
                   WELCOME TO ICG
                 </Typography>
                 <Typography
-                  variant="h3"
+                  //  variant="h3"
                   component="h1"
-                  sx={{ fontWeight: "semi-bold", mb: 2 }}
+                  sx={{
+                    fontWeight: "semi-bold",
+                    mb: 2,
+                    fontSize: { md: 44, xs: 24 },
+                    lineHeight: { md: 1.1 }, // Adjust line height to reduce spacing
+                  }}
                 >
                   Maze Of Obstacles, Solutions Galore
                 </Typography>
@@ -147,6 +158,17 @@ const Hero = () => {
         }}
       >
         <Navbar />
+      </Box>
+      <Box
+        sx={{
+          bottom: 0,
+          left: 0,
+          zIndex: 1000,
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <GetInTouchBox />
       </Box>
     </Box>
   );

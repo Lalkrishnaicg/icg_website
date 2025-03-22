@@ -1,4 +1,4 @@
-import { Box, Typography, Stack, Container } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import React from "react";
 
 const Footer = () => {
@@ -6,26 +6,31 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        backgroundColor: "primary.main",
+        mt: 2,
         color: "black",
-        py: 3,
-        mt: 5,
+        py: 1,
+        px: 14, // Added padding for spacing
       }}
     >
-      <Container maxWidth="lg">
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={2}
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <Typography variant="body1">© 2025 Irish Consulting Group</Typography>
-          <Stack direction="row" spacing={2}>
-            <Typography variant="body2">Privacy Policy</Typography>
-            <Typography variant="body2">Terms of Service</Typography>
-          </Stack>
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={2}
+        justifyContent="space-between"
+        alignItems="flex-start"
+      >
+        {/* Left-aligned copyright text */}
+        <Box sx={{ flex: 1 }}>
+          <Typography variant="body1" sx={{ textAlign: "left" }}>
+            © 2025 Irish Consulting Group
+          </Typography>
+        </Box>
+
+        {/* Right-aligned links */}
+        <Stack direction="row" spacing={2}>
+          <Typography variant="body2">Privacy Policy</Typography>
+          <Typography variant="body2">Terms of Service</Typography>
         </Stack>
-      </Container>
+      </Stack>
     </Box>
   );
 };

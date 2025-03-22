@@ -33,11 +33,12 @@ const Navbar = () => {
     <Box
       position="fixed"
       sx={{
-        bottom: 40,
+        top: 40,
+        left: 50,
         bgcolor: "transparent",
-        backdropFilter: "blur(10px)",
+        backdropFilter: "blur(1px)",
         borderRadius: "20px",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.4)",
+        boxShadow: "0 2px 6px rgba(0, 0, 0, 0.2)",
       }}
     >
       {/* Animated Toolbar */}
@@ -57,8 +58,22 @@ const Navbar = () => {
               "&:hover": { background: "#ff1a1a" },
             }}
           >
-            <IconButton color="black" onClick={toggleDrawer(true)}>
-              <MenuIcon sx={{ fontSize: 32, color: "black" }} />
+            <IconButton
+              color="black"
+              onClick={toggleDrawer(true)}
+              sx={{
+                fontSize: 32,
+                color: "black",
+                "&:hover": { color: "white" },
+              }}
+            >
+              <MenuIcon
+                sx={{
+                  fontSize: 32,
+                  color: "black",
+                  "&:hover": { color: "white" },
+                }}
+              />
             </IconButton>
           </Box>
 
