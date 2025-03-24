@@ -18,6 +18,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"; // Import
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import SendIcon from "@mui/icons-material/Send";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"; // Back icon for subcategory drawer
 
 const sections = [
   {
@@ -84,7 +85,16 @@ const sections = [
 const NavbarDrawer = ({ open, toggleDrawer }) => {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedSubCategories, setSelectedSubCategories] = useState([]);
+  const [subDrawerOpen, setSubDrawerOpen] = useState(false);
 
+  const handleOpenSubDrawer = (service) => {
+    setSelectedService(service);
+    setSubDrawerOpen(true);
+  };
+
+  const handleCloseSubDrawer = () => {
+    setSubDrawerOpen(false);
+  };
   const handleNavigation = (page) => {
     console.log(`Navigating to ${page}`);
     // Use Next.js Router, React Router, or a function to navigate
@@ -92,195 +102,151 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
     // navigate(`/services/${page}`);
   };
   return (
-    <Drawer
-      anchor="right"
-      open={open}
-      onClose={toggleDrawer(false)}
-      sx={{
-        "& .MuiDrawer-paper": {
-          width: "100vw",
-          height: "100vh",
-          backgroundColor: "white",
-          display: "flex",
-          flexDirection: "column",
-          color: "black",
-        },
-      }}
-    >
-      {/* Top Section */}
-      <Box
+    <>
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={toggleDrawer(false)}
         sx={{
-          position: "sticky",
-          width: "100%",
-          p: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderBottom: "2px solid #ddd",
-          backgroundColor: "#f5f5f5",
-          zIndex: 1000,
+          "& .MuiDrawer-paper": {
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "white",
+            display: "flex",
+            flexDirection: "column",
+            color: "black",
+          },
         }}
       >
-        {/* ICG Logo */}
-        <motion.div
-          animate={{ x: open ? 40 : 0 }} // Moves left when the drawer opens
-          transition={{ duration: 0.7, ease: "easeIn" }}
-        >
-          {/* <Link href="/"> */}
-          <Button onClick={toggleDrawer(false)}>
-            <Box
-              sx={{
-                backgroundImage: `url("/assets/icg.png")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                width: "90px",
-                height: "90px",
-                pr: 20,
-              }}
-            />
-          </Button>
-          {/* </Link> */}
-        </motion.div>
-
-        {/* Search Bar */}
-        <TextField
-          variant="outlined"
-          placeholder="Search..."
+        {/* Top Section */}
+        <Box
           sx={{
-            width: "50%",
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "20px",
-              border: "1px solid #4C4646",
-              backgroundColor: "#f9f9f9",
-              color: "black",
-            },
-          }}
-        />
-
-        {/* Close Icon */}
-        <IconButton
-          onClick={toggleDrawer(false)}
-          sx={{
-            bgcolor: "#dde4f0",
-            height: 50,
-            width: 50,
+            position: "sticky",
+            width: "100%",
+            p: 0,
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            borderRadius: 2,
-            right: 20,
+            justifyContent: "space-between",
+            borderBottom: "2px solid #ddd",
+            backgroundColor: "#f5f5f5",
+            zIndex: 1000,
           }}
         >
-          <CloseIcon sx={{ fontSize: 30, color: "#0606f9" }} />
-        </IconButton>
-      </Box>
+          {/* ICG Logo */}
+          <motion.div
+            //    animate={{ x: open ? 40 : 0 }} // Moves left when the drawer opens
+            transition={{ duration: 0.7, ease: "easeIn" }}
+          >
+            {/* <Link href="/"> */}
+            <Button onClick={toggleDrawer(false)}>
+              <Box
+                sx={{
+                  backgroundImage: `url("/assets/icg.png")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  width: { md: "90px", xs: "80px" },
+                  height: { md: "90px", xs: "70px" },
+                  pr: { md: 20, xs: 0 },
+                }}
+              />
+            </Button>
+            {/* </Link> */}
+          </motion.div>
 
-      {/* Main Content Section */}
-      <Grid
-        container
-        sx={{
-          flexGrow: 1,
-          overflowY: "auto", // Enables scrolling
-          height: "calc(100vh - 100px)", // Adjusts height after fixing the top
-        }}
-      >
-        {/* Left Section - Menu */}
-        <Grid container>
-          {/* Left Sidebar */}
-          <Grid
-            item
-            xs={12}
-            md={4}
-            lg={3}
+          {/* Search Bar */}
+          <TextField
+            variant="outlined"
+            placeholder="Search..."
             sx={{
-              height: "100vh",
-              overflowY: "auto",
-              p: 2,
-              bgcolor: "#f9f9f9",
+              width: "50%",
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "20px",
+                border: "1px solid #4C4646",
+                backgroundColor: "#f9f9f9",
+                color: "black",
+              },
+            }}
+          />
+
+          {/* Close Icon */}
+          <IconButton
+            onClick={toggleDrawer(false)}
+            sx={{
+              bgcolor: "#dde4f0",
+              height: 50,
+              width: 50,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 2,
+              right: 20,
+              "&:hover": { backgroundColor: "red" }, // Fix: Direct hover effect
+              "&:hover svg": { color: "white" }, // Fix: Target `CloseIcon` correctly
             }}
           >
-            <List>
-              {sections.map((category) => (
-                <Box
-                  key={category.main_heading}
-                  sx={{ width: "100%", textAlign: "left" }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ p: 1, borderBottom: "2px solid #ddd" }}
+            <CloseIcon
+              sx={{
+                fontSize: 40,
+                color: "#1B1B1B", // Default color
+              }}
+            />
+          </IconButton>
+        </Box>
+
+        {/* Main Content Section */}
+        <Grid
+          container
+          sx={{
+            flexGrow: 1,
+            overflowY: "auto", // Enables scrolling
+            height: "calc(100vh - 100px)", // Adjusts height after fixing the top
+          }}
+        >
+          {/* Left Section - Menu */}
+          <Grid container>
+            {/* Left Sidebar */}
+            <Grid
+              item
+              xs={12}
+              md={4}
+              lg={3}
+              sx={{
+                height: "100vh",
+                overflowY: "auto",
+                p: 2,
+                bgcolor: "#f9f9f9",
+              }}
+            >
+              <List>
+                {sections.map((category) => (
+                  <Box
+                    key={category.main_heading}
+                    sx={{ width: "100%", textAlign: "left" }}
                   >
-                    {category.main_heading}
-                  </Typography>
+                    <Typography
+                      //  variant="h5"
+                      sx={{
+                        p: 1,
+                        borderBottom: "2px solid #ddd",
+                        fontSize: 22,
+                      }}
+                    >
+                      {category.main_heading}
+                    </Typography>
 
-                  {category.sub_headings.map((service) => {
-                    const hasSubCategories = service.sub_categories?.length > 0;
+                    {category.sub_headings.map((service) => {
+                      const hasSubCategories =
+                        service.sub_categories?.length > 0;
 
-                    return hasSubCategories ? (
-                      <ListItem
-                        key={service.title}
-                        button
-                        onClick={() => {
-                          setSelectedService(service.title);
-                          setSelectedSubCategories(service.sub_categories);
-                        }}
-                        sx={{
-                          py: 1,
-                          height: "40px",
-                          minHeight: "40px",
-                          bgcolor:
-                            selectedService === service.title
-                              ? "#008cff"
-                              : "transparent",
-                          borderRadius: 2,
-                          px: 3,
-                          "&:hover, &:focus": {
-                            bgcolor: "#cfe8fc",
-                            border: "1px solid #008cff",
-                            textShadow: "0 0 10px #ffffff",
-                            boxShadow:
-                              "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff",
-                            "& .arrow-icon": {
-                              opacity: 1,
-                              color: "black",
-                            },
-                          },
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <ListItemText
-                          primary={
-                            <Typography sx={{ fontSize: "1.3rem", pl: 2 }}>
-                              {service.title}
-                            </Typography>
-                          }
-                        />
-                        <ArrowForwardIosIcon
-                          className="arrow-icon"
-                          sx={{
-                            fontSize: 22,
-                            color: "#008cff",
-                            opacity: 0,
-                            transition:
-                              "opacity 0.1s ease-in-out, color 0.1s ease-in-out",
-                          }}
-                        />
-                      </ListItem>
-                    ) : (
-                      // Wrap ListItem with Link if there are no subcategories
-                      <Link
-                        key={service.title}
-                        href={`/icg/${service.title
-                          .toLowerCase()
-                          .replace(/\s+/g, "-")}`}
-                        passHref
-                        style={{ textDecoration: "none", color: "inherit" }}
-                      >
+                      return hasSubCategories ? (
                         <ListItem
+                          key={service.title}
                           button
-                          onClick={() => handleNavigation(service.title)}
+                          onClick={() => {
+                            setSelectedService(service.title);
+                            setSelectedSubCategories(service.sub_categories);
+                          }}
                           sx={{
                             py: 1,
                             height: "40px",
@@ -297,6 +263,10 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                               textShadow: "0 0 10px #ffffff",
                               boxShadow:
                                 "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff",
+                              "& .arrow-icon": {
+                                opacity: 1,
+                                color: "black",
+                              },
                             },
                             display: "flex",
                             alignItems: "center",
@@ -305,99 +275,209 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                         >
                           <ListItemText
                             primary={
-                              <Typography sx={{ fontSize: "1.3rem", pl: 2 }}>
+                              <Typography sx={{ fontSize: "1.2rem", pl: 2 }}>
                                 {service.title}
                               </Typography>
                             }
                           />
+                          <ArrowForwardIosIcon
+                            className="arrow-icon"
+                            sx={{
+                              fontSize: 22,
+                              color: "#008cff",
+                              opacity: 0,
+                              transition:
+                                "opacity 0.1s ease-in-out, color 0.1s ease-in-out",
+                            }}
+                          />
                         </ListItem>
-                      </Link>
-                    );
-                  })}
-                </Box>
-              ))}
-            </List>
-          </Grid>
-
-          {/* Right Section - Selected Service Content */}
-          <Grid
-            item
-            xs={12}
-            md={8}
-            lg={9}
-            sx={{ display: "flex", flexDirection: "column", p: 3 }}
-          >
-            <Grid container spacing={2} sx={{ width: "100%" }}>
-              <Grid item xs={12} sx={{ border: "1px solid #D3D3D3", p: 2 }}>
-                {/* Selected Service */}
-                <Typography variant="h5" fontWeight="bold" sx={{ mb: 2 }}>
-                  {selectedService || "Select a Service"}
-                </Typography>
-                <Typography variant="body1">
-                  {selectedService
-                    ? `Detailed information about ${selectedService}.`
-                    : "Click on a service to see details."}
-                </Typography>
-
-                {/* Sub-items (if available) */}
-                {/* Sub-Categories (if available) */}
-                {selectedSubCategories.length > 0 && (
-                  <>
-                    <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
-                      Sub-Categories:
-                    </Typography>
-                    <List>
-                      {selectedSubCategories.map((subCategory, index) => (
+                      ) : (
+                        // Wrap ListItem with Link if there are no subcategories
                         <Link
-                          key={subCategory}
-                          href={`/${selectedService}/${subCategory
+                          key={service.title}
+                          href={`/icg/${service.title
                             .toLowerCase()
                             .replace(/\s+/g, "-")}`}
                           passHref
                           style={{ textDecoration: "none", color: "inherit" }}
                         >
                           <ListItem
-                            key={index}
+                            button
+                            onClick={() => handleNavigation(service.title)}
                             sx={{
-                              pl: 2, // Default padding
-                              //    transition: "all 0.3s ease-in-out", // Smooth transition effect
+                              py: 1,
+                              height: "40px",
+                              minHeight: "40px",
+                              bgcolor:
+                                selectedService === service.title
+                                  ? "#008cff"
+                                  : "transparent",
+                              borderRadius: 2,
+                              px: 3,
                               "&:hover, &:focus": {
                                 bgcolor: "#cfe8fc",
                                 border: "1px solid #008cff",
                                 textShadow: "0 0 10px #ffffff",
                                 boxShadow:
                                   "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff",
-                                pl: 4, // Increased padding on hover
-                                pr: 4, // Optional: Add right padding as well
-                                width: 300,
-                                "& .arrow-icon": {
-                                  opacity: 1, // Show on hover
-                                  color: "black",
-                                },
                               },
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-between",
                             }}
-                            // button
-                            // onClick={() => handleNavigation(subCategory)}
                           >
                             <ListItemText
                               primary={
-                                <Typography sx={{ fontSize: "1.1rem" }}>
-                                  {subCategory}
+                                <Typography sx={{ fontSize: "1.3rem", pl: 2 }}>
+                                  {service.title}
                                 </Typography>
                               }
                             />
                           </ListItem>
                         </Link>
-                      ))}
-                    </List>
-                  </>
-                )}
+                      );
+                    })}
+                  </Box>
+                ))}
+              </List>
+            </Grid>
+
+            {/* Right Section - Selected Service Content */}
+            <Grid
+              item
+              xs={12}
+              md={8}
+              lg={9}
+              sx={{
+                display: { md: "flex", xs: "none" },
+                flexDirection: "column",
+                p: 3,
+              }}
+            >
+              <Grid container spacing={2} sx={{ width: "100%" }}>
+                <Grid item xs={12} sx={{ border: "1px solid #D3D3D3", p: 2 }}>
+                  {/* Selected Service */}
+                  <Typography variant="h5" fontWeight="bold" sx={{ mb: 2 }}>
+                    {selectedService || "Select a Service"}
+                  </Typography>
+                  <Typography variant="body1">
+                    {selectedService
+                      ? `Detailed information about ${selectedService}.`
+                      : "Click on a service to see details."}
+                  </Typography>
+
+                  {/* Sub-items (if available) */}
+                  {/* Sub-Categories (if available) */}
+                  {selectedSubCategories.length > 0 && (
+                    <>
+                      <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
+                        Sub-Categories:
+                      </Typography>
+                      <List>
+                        {selectedSubCategories.map((subCategory, index) => (
+                          <Link
+                            key={subCategory}
+                            href={`/${selectedService}/${subCategory
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`}
+                            passHref
+                            style={{ textDecoration: "none", color: "inherit" }}
+                          >
+                            <ListItem
+                              key={index}
+                              sx={{
+                                pl: 2, // Default padding
+                                //    transition: "all 0.3s ease-in-out", // Smooth transition effect
+                                "&:hover, &:focus": {
+                                  bgcolor: "#cfe8fc",
+                                  border: "1px solid #008cff",
+                                  textShadow: "0 0 10px #ffffff",
+                                  boxShadow:
+                                    "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff",
+                                  pl: 4, // Increased padding on hover
+                                  pr: 4, // Optional: Add right padding as well
+                                  width: 300,
+                                  "& .arrow-icon": {
+                                    opacity: 1, // Show on hover
+                                    color: "black",
+                                  },
+                                },
+                              }}
+                              // button
+                              // onClick={() => handleNavigation(subCategory)}
+                            >
+                              <ListItemText
+                                primary={
+                                  <Typography sx={{ fontSize: "1.1rem" }}>
+                                    {subCategory}
+                                  </Typography>
+                                }
+                              />
+                            </ListItem>
+                          </Link>
+                        ))}
+                      </List>
+                    </>
+                  )}
+                </Grid>
               </Grid>
             </Grid>
+            {/* for mobile section subcategories drawer */}
+            {/* Subcategory Drawer */}
           </Grid>
         </Grid>
-      </Grid>
-    </Drawer>
+      </Drawer>
+      <Drawer
+        anchor="right"
+        open={subDrawerOpen}
+        onClose={handleCloseSubDrawer}
+        sx={{
+          "& .MuiDrawer-paper": {
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "white",
+            display: "flex",
+            flexDirection: "column",
+            color: "black",
+          },
+        }}
+      >
+        {/* Subcategory Header */}
+        <Box
+          sx={{
+            p: 2,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <IconButton onClick={handleCloseSubDrawer}>
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6">{selectedService?.title}</Typography>
+          <IconButton onClick={handleCloseSubDrawer}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+
+        {/* Subcategory List */}
+        <List>
+          {selectedService?.sub_categories?.map((subcategory) => (
+            <Link
+              key={subcategory}
+              href={`/services/${subcategory
+                .toLowerCase()
+                .replace(/\s+/g, "-")}`}
+              passHref
+            >
+              <ListItem button onClick={handleCloseSubDrawer}>
+                <ListItemText primary={subcategory} />
+              </ListItem>
+            </Link>
+          ))}
+        </List>
+      </Drawer>
+    </>
   );
 };
 

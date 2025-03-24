@@ -15,18 +15,23 @@ import SendIcon from "@mui/icons-material/Send";
 
 const FooterDetails = () => {
   return (
-    <Grid container sx={{ backgroundColor: "#dde4f0", mt: 15, py: 5 }}>
+    <Grid container sx={{ mt: 10, py: 4 }}>
       {/* Contact Box Section */}
       <Grid
         item
         xs={12}
         md={12}
-        sx={{ display: "flex", justifyContent: "center" }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          height: 400,
+          backgroundColor: "#dde4f0",
+          py: 5,
+        }}
       >
         <Box
           sx={{
             border: "1px dotted",
-            height: 400,
             width: "90%",
             display: "flex",
             textAlign: "center",
@@ -60,9 +65,28 @@ const FooterDetails = () => {
               color: "white",
               border: "1px solid #ffffff80",
               transition: "0.5s ease",
-              "&:hover": { background: "#008cff", border: "1px solid #008cff" },
+              "&:hover, &:focus": {
+                color: "#ffffff",
+                background: "#008cff",
+                border: "1px solid #008cff",
+                textShadow:
+                  "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
+
+                boxShadow:
+                  "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+              },
+              "&:hover .icon": {
+                transform: "rotate(-90deg)", // Rotates the icon upwards
+              },
             }}
-            endIcon={<SendIcon />}
+            endIcon={
+              <SendIcon
+                className="icon"
+                sx={{
+                  transition: "transform 0.3s ease-in-out",
+                }}
+              />
+            }
           >
             Get In Touch
           </Button>
@@ -70,20 +94,20 @@ const FooterDetails = () => {
       </Grid>
 
       {/* Footer Navigation Section */}
-      <Grid item xs={12} md={12} sx={{ py: 3, bgcolor: "white" }}>
+      <Grid item xs={12} md={12} sx={{ py: 7, bgcolor: "white" }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Box
             sx={{
               display: "flex",
               flexWrap: "wrap",
-              width: "90%",
+              width: { md: "90%", xs: "100%" },
               justifyContent: "space-between",
             }}
           >
             {/* Left Text */}
             <Typography
               sx={{
-                fontSize: 28,
+                fontSize: 36,
                 textAlign: "left",
                 width: { xs: "100%", md: "33%" },
                 mb: { xs: 2, md: 0 },
@@ -109,30 +133,53 @@ const FooterDetails = () => {
             </Box>
 
             {/* Right Assistance Section */}
-            <Box sx={{ textAlign: "right", width: { xs: "100%", md: "33%" } }}>
+            <Box sx={{ textAlign: "start", width: { xs: "100%", md: "33%" } }}>
               <Typography sx={{ fontSize: 18, fontWeight: 600, mb: 1 }}>
                 We Assist You
               </Typography>
-              <Button
-                variant="contained"
-                sx={{
-                  minWidth: 150,
-                  height: 40,
-                  textTransform: "uppercase",
-                  borderRadius: "16px",
-                  fontSize: "12px",
-                  fontWeight: "500",
-                  bgcolor: "#082f54",
-                  color: "white",
-                  "&:hover": {
-                    background: "#008cff",
-                    border: "1px solid #008cff",
-                  },
-                }}
-                endIcon={<SendIcon />}
-              >
-                Watch the video
-              </Button>
+              <Typography sx={{}}>
+                We appreciate the chance to engage with you. Feel free to share
+                your inquiries and feedback—our dedicated professionals are here
+                to assist you.
+              </Typography>
+              <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    minWidth: 150,
+                    height: 40,
+                    textTransform: "uppercase",
+                    borderRadius: "16px",
+                    fontSize: "12px",
+                    fontWeight: "500",
+                    bgcolor: "#082f54",
+                    color: "white",
+                    "&:hover, &:focus": {
+                      color: "#ffffff",
+                      background: "#008cff",
+                      border: "1px solid #008cff",
+                      textShadow:
+                        "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
+
+                      boxShadow:
+                        "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+                    },
+                    "&:hover .icon": {
+                      transform: "rotate(-90deg)", // Rotates the icon upwards
+                    },
+                  }}
+                  endIcon={
+                    <SendIcon
+                      className="icon"
+                      sx={{
+                        transition: "transform 0.3s ease-in-out",
+                      }}
+                    />
+                  }
+                >
+                  Connect Us
+                </Button>
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -176,6 +223,7 @@ const FooterDetails = () => {
                   fontWeight: 600,
                   textAlign: "left",
                   letterSpacing: 2,
+                  lineHeight: 0.9, // Adjust this value to control the line height
                 }}
               >
                 Irish <br /> Consulting <br /> Group
@@ -183,8 +231,16 @@ const FooterDetails = () => {
             </Box>
 
             {/* Middle: Business Solutions Text */}
-            <Box sx={{ textAlign: "start", flex: 1 }}>
-              <Typography sx={{ fontSize: 14 }}>
+            <Box
+              sx={{
+                textAlign: "start",
+                flex: 1,
+                mt: 2,
+                lineHeight: 0.7, // Adjust this value to control the line height
+                p: 3,
+              }}
+            >
+              <Typography sx={{ fontSize: 12 }}>
                 Navigate the maze of obstacles with expert business solutions.
                 Our team delivers results-driven strategies, proactive risk
                 mitigation, and innovative guidance to drive your success. We
@@ -194,7 +250,7 @@ const FooterDetails = () => {
             </Box>
 
             {/* Right: Social Media Icons */}
-            <Box sx={{ fontSize: 20, textAlign: "right" }}>
+            <Box sx={{ fontSize: 20, textAlign: "right", mt: 4 }}>
               <Typography sx={{ fontWeight: 600 }}>Let's Go Social</Typography>
               <Box sx={{ display: "flex", gap: 2, mt: 1 }}>
                 <FaFacebookF />

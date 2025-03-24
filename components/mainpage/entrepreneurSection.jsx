@@ -52,7 +52,7 @@ const EntrepreneurSection = () => {
             variant="h4"
             fontWeight="bold"
             mb={2}
-            sx={{ fontSize: { md: 38, xs: 24 } }}
+            sx={{ fontSize: { md: 38, xs: 24 }, color: "#1B1B1B " }}
           >
             The Entrepreneurial Journey
           </Typography>

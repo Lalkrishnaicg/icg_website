@@ -28,7 +28,9 @@ export const createCustomTheme = (mode) =>
         paper: mode === "dark" ? "#1e1e1e" : "#ffffff",
       },
       text: {
-        primary: mode === "dark" ? "#ffffff" : "#000000",
+        //  primary: mode === "dark" ? "#ffffff" : "#000000",
+        primary: "#1B1B1B", // Set this to your desired text color
+        secondary: "#666666",
       },
     },
   });

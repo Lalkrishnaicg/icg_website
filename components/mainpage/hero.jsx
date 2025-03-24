@@ -34,15 +34,13 @@ const Hero = () => {
 
   return (
     <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
-      {/* Navbar at the Bottom */}
       <Box>
-        {/* Main Content */}
         <Container
           maxWidth="lg"
           sx={{
             flexGrow: 1,
 
-            //  mt: 12,
+            pt: { md: 3, xs: -7 },
           }}
         >
           <Grid
@@ -52,7 +50,6 @@ const Hero = () => {
             justifyContent="center"
             sx={{ height: "100vh" }}
           >
-            {/* Left Section (Text) */}
             <Grid
               item
               xs={12}
@@ -77,21 +74,32 @@ const Hero = () => {
                   WELCOME TO ICG
                 </Typography>
                 <Typography
-                  //  variant="h3"
                   component="h1"
                   sx={{
                     fontWeight: "semi-bold",
                     mb: 2,
-                    fontSize: { md: 44, xs: 24 },
-                    lineHeight: { md: 1.1 }, // Adjust line height to reduce spacing
+                    fontSize: { md: 44, xs: 28 },
+                    lineHeight: { md: 1.1, xs: 1.2 },
+
+                    color: "#1B1B1B",
                   }}
                 >
-                  Maze Of Obstacles, Solutions Galore
+                  Maze Of Obstacles,{" "}
+                  <Box
+                    component="span"
+                    sx={{ display: { xs: "block", md: "inline" } }}
+                  >
+                    Solutions Galore
+                  </Box>
                 </Typography>
+
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
                   spacing={2}
-                  sx={{ mt: 4 }}
+                  sx={{
+                    mt: { md: 4, xs: 3 },
+                    display: { xs: "none", md: "flex" },
+                  }}
                 >
                   <Button
                     variant="contained"
@@ -101,7 +109,6 @@ const Hero = () => {
                     sx={{
                       border: "2px solid #0606f9",
                       borderRadius: "8px",
-
                       borderColor: "#0606f9",
                       backgroundColor: "white",
                     }}
@@ -116,18 +123,29 @@ const Hero = () => {
               item
               xs={12}
               md={6}
-              sx={{ display: "flex", justifyContent: "center" }}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center", // Ensures vertical alignment
+              }}
             >
               <Box
                 sx={{
+                  mt: { md: 0, xs: "5vh" }, // Adjusted for consistency
                   height: "420px",
                   width: "600px",
                   borderRadius: 2,
-                  transform: `perspective(1300px) rotateY(${rotationAngle}deg) scale(${zoomScale})`,
+                  transform: {
+                    md: `perspective(1300px) rotateY(${rotationAngle}deg) scale(${zoomScale})`,
+                    xs: "none",
+                  },
                   transformOrigin: "center",
                   transition: "transform 0.3s ease-out",
                   boxShadow: "10px 10px 20px rgba(0,0,0,0.3)",
                   overflow: "hidden",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center", // Centering the video inside
                 }}
               >
                 <video

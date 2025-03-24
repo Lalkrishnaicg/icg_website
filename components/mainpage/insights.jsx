@@ -12,7 +12,7 @@ const Insights = () => {
         alignItems: "stretch", // Ensures children take full height
         justifyContent: "center",
         bgcolor: "#f0f0f0",
-        minHeight: "95vh", // Ensures the entire section has enough height
+        minHeight: { md: "95vh", xs: "35vh" }, // Ensures the entire section has enough height
 
         mt: 10,
       }}
@@ -28,7 +28,7 @@ const Insights = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          minHeight: "80vh", // Ensures the left side matches the right side
+          minHeight: { md: "80vh", xs: "40vh" }, // Ensures the left side matches the right side
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -39,7 +39,7 @@ const Insights = () => {
         <Typography
           sx={{
             color: "white",
-            fontSize: 40,
+            fontSize: { xs: 20, sm: 20, md: 40 },
             p: 8,
             textAlign: "center",
           }}
@@ -48,18 +48,17 @@ const Insights = () => {
           of interest.
         </Typography>
 
-        {/* Box Positioned at the Bottom */}
         <Box
           sx={{
             position: "absolute", // Fix it to the bottom of the Grid
-            bottom: 20, // Adjust bottom spacing
+            bottom: { md: 20, xs: -30 }, // Adjust bottom spacing
             width: "90%",
             display: "flex",
             justifyContent: "center", // Center the button horizontally
             alignItems: "center",
-            height: 80,
+            height: { md: 80, xs: 80 },
             bgcolor: "white",
-            borderRadius: 6,
+            //     borderRadius: 6,
           }}
         >
           <Button
@@ -115,9 +114,9 @@ const Insights = () => {
         alt="Message Bubble Model"
         sx={{
           width: "100%", // Ensures the image takes full width
-          height: "100vh", // Ensures full height of the viewport
+          height: { md: "100vh", xs: "50vh" }, // Ensures full height of the viewport
           objectFit: "cover", // Ensures the image covers the entire grid area
-          borderRadius: "10px",
+          //   borderRadius: "10px",
         }}
       />
     </Grid>

@@ -43,7 +43,7 @@ const Heiglight = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, p: 2, margin: 6 }}>
+    <Box sx={{ flexGrow: 1, p: { md: 2, xs: 0 }, margin: { md: 6, xs: 1 } }}>
       <Grid container spacing={2}>
         {/* Left Side (6 columns) */}
         <Grid item xs={12} md={6}>
@@ -51,7 +51,13 @@ const Heiglight = () => {
             {/* Top Left Section */}
             <Grid item xs={12}>
               <Paper
-                sx={{ p: 2, height: 300, bgcolor: "#dde4f0", borderRadius: 6 }}
+                sx={{
+                  p: 2,
+
+                  height: 300,
+                  bgcolor: "#dde4f0",
+                  borderRadius: 6,
+                }}
               >
                 <Box
                   sx={{
@@ -59,7 +65,7 @@ const Heiglight = () => {
                     alignItems: "center",
                     width: "100%",
                     flexWrap: "wrap",
-                    pl: 6,
+                    pl: { md: 6, xs: 0 },
                     pt: 8,
                     gap: 8,
                   }}
@@ -210,11 +216,11 @@ const Heiglight = () => {
         <Grid item xs={12} md={6}>
           <Paper
             sx={{
-              p: 3,
+              p: { md: 3, xs: 2 },
               height: 600,
               bgcolor: "#fff",
               overflow: "hidden",
-              borderRadius: 6,
+              borderRadius: 4,
             }}
           >
             <Typography variant="h5" fontWeight="bold" gutterBottom>

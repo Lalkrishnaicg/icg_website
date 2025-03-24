@@ -14,19 +14,19 @@ const GetInTouchBox = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       position="fixed"
       sx={{
-        top: 40,
-        right: 50,
-        // bgcolor: "#dde4f0",
-        padding: "10px 15px",
-        borderRadius: "20px",
+        top: { md: 40, xs: 24 },
+        right: { md: 50, xs: 30 },
+        bgcolor: "rgba(255, 255, 255, 0.7)", // Adjust the last value for transparency
+        padding: { md: "10px 15px", xs: "5px 8px" },
+        borderRadius: { md: "20px", xs: "15px" },
         display: "flex",
         alignItems: "center",
-        gap: 1,
+        //  gap: 1,
         cursor: "pointer",
         boxShadow: "0 2px 6px rgba(0, 0, 0, 0.2)",
         transition: "all 0.3s ease",
         "&:hover": { backgroundColor: "#ff1a1a", color: "white" },
-        height: 70,
+        height: { md: 70, xs: 57 },
       }}
     >
       <Link
@@ -38,8 +38,15 @@ const GetInTouchBox = () => {
           color: "inherit",
         }}
       >
-        <Typography fontWeight="bold">Get In Touch</Typography>
-        <ArrowForwardIcon sx={{ fontSize: 20, marginLeft: 0.5 }} />
+        <Typography
+          fontWeight="semi-bold"
+          sx={{ fontSize: { md: 20, xs: 14 } }}
+        >
+          Get In Touch
+        </Typography>
+        <ArrowForwardIcon
+          sx={{ fontSize: { md: 20, xs: 14 }, marginLeft: 0.5 }}
+        />
       </Link>
     </Box>
   );

@@ -33,11 +33,11 @@ const Navbar = () => {
     <Box
       position="fixed"
       sx={{
-        top: 40,
-        left: 50,
-        bgcolor: "transparent",
+        top: { md: 40, xs: 24 },
+        left: { md: 50, xs: 10 },
+        bgcolor: "rgba(255, 255, 255, 0.9)", // Adjust the last value for transparency
         backdropFilter: "blur(1px)",
-        borderRadius: "20px",
+        borderRadius: { md: "20px", xs: "15px" },
         boxShadow: "0 2px 6px rgba(0, 0, 0, 0.2)",
       }}
     >
@@ -54,7 +54,7 @@ const Navbar = () => {
               display: "flex",
               justifyContent: "center",
               width: 50,
-              borderRadius: 3,
+              borderRadius: { md: 3, xs: 3 },
               "&:hover": { background: "#ff1a1a" },
             }}
           >
@@ -62,14 +62,15 @@ const Navbar = () => {
               color="black"
               onClick={toggleDrawer(true)}
               sx={{
-                fontSize: 32,
+                fontSize: { md: 32, xs: 20 },
                 color: "black",
-                "&:hover": { color: "white" },
+                "&:hover": { backgroundColor: "red" }, // Fix: Direct hover effect
+                "&:hover svg": { color: "white" }, // Fix: Target `CloseIcon` correctly
               }}
             >
               <MenuIcon
                 sx={{
-                  fontSize: 32,
+                  fontSize: { md: 32, xs: 20 },
                   color: "black",
                   "&:hover": { color: "white" },
                 }}
@@ -85,8 +86,8 @@ const Navbar = () => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                width: "80px",
-                height: "80px",
+                width: { md: "80px", xs: "45px" },
+                height: { md: "80px", xs: "50px" },
               }}
             ></Box>
           </Link>

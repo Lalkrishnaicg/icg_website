@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion";
+import { Box, Typography, IconButton } from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const images = [
   { src: "/assets/image_1.png", caption: "Caption 1" },
@@ -9,20 +10,40 @@ const images = [
   { src: "/assets/image_3.png", caption: "Caption 3" },
   { src: "/assets/image_4.png", caption: "Caption 4" },
   { src: "/assets/image_13.jpg", caption: "Caption 5" },
+  { src: "/assets/image_6.jpg", caption: "Caption 6" },
 ];
 
 const CarouselSection = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [itemsPerRow, setItemsPerRow] = useState(1);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      moveRight();
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [selectedIndex]);
+    const updateItemsPerRow = () => {
+      if (window.innerWidth >= 900) {
+        setItemsPerRow(4); // Show 4 images for md and larger screens
+      } else {
+        setItemsPerRow(1); // Show 1 image for smaller screens
+      }
+    };
 
+    updateItemsPerRow();
+    window.addEventListener("resize", updateItemsPerRow);
+
+    return () => window.removeEventListener("resize", updateItemsPerRow);
+  }, []);
+
+  // Move to next images
   const moveRight = () => {
-    setSelectedIndex((prev) => (prev + 1) % images.length);
+    setSelectedIndex((prev) =>
+      prev + itemsPerRow < images.length ? prev + itemsPerRow : 0
+    );
+  };
+
+  // Move to previous images
+  const moveLeft = () => {
+    setSelectedIndex((prev) =>
+      prev - itemsPerRow >= 0 ? prev - itemsPerRow : images.length - itemsPerRow
+    );
   };
 
   return (
@@ -44,55 +65,59 @@ const CarouselSection = () => {
           mb: 3,
         }}
       >
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <Typography sx={{ fontSize: "2rem", color: "#000908" }}>
-            Top Notes
-          </Typography>
-        </motion.div>
+        <Typography sx={{ fontSize: "2rem", color: "#000908" }}>
+          Latest Notes
+        </Typography>
       </Box>
 
-      {/* Carousel Container */}
       <Box
         sx={{
+          position: "relative",
+          width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          overflow: "hidden",
-          position: "relative",
-          height: 400,
+          px: { md: 2, xs: 0 },
         }}
       >
-        <motion.div
-          animate={{ x: `-${selectedIndex * 320}px` }}
-          transition={{ type: "spring", stiffness: 150, damping: 15 }}
-          style={{
-            display: "flex",
-            gap: "20px",
-            whiteSpace: "nowrap",
-            width: "max-content",
+        {/* Left Button */}
+        <IconButton
+          onClick={moveLeft}
+          sx={{
+            position: "absolute",
+            left: 10,
+            zIndex: 10,
+            color: "#fff",
+            bgcolor: "#00000080",
+            "&:hover": { bgcolor: "#000" },
           }}
         >
-          {[...images, ...images].map((item, index) => {
-            const isOdd = index % 2 !== 0;
-            return (
-              <motion.div
-                key={index}
-                animate={{ scale: isOdd ? 1.05 : 1 }}
-                transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                style={{ width: "320px", textAlign: "center" }}
-              >
+          <ArrowBackIosIcon />
+        </IconButton>
+
+        {/* Image Display */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: `repeat(${itemsPerRow}, 1fr)`,
+            gap: "10px",
+            width: "100%",
+            textAlign: "center",
+            overflow: "hidden",
+          }}
+        >
+          {images
+            .slice(selectedIndex, selectedIndex + itemsPerRow)
+            .map((item, index) => (
+              <Box key={index} sx={{ textAlign: "center" }}>
                 <Box
                   sx={{
-                    width: isOdd ? "310px" : "290px",
-                    height: isOdd ? "260px" : "240px",
+                    width: "100%",
+                    height: { xs: "260px", md: "200px" },
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    transition: "all 0.3s ease",
+                    mx: "auto",
                   }}
                 >
                   <img
@@ -102,16 +127,39 @@ const CarouselSection = () => {
                       width: "100%",
                       height: "100%",
                       borderRadius: "10px",
+                      objectFit: "cover",
                     }}
                   />
                 </Box>
-                <Typography sx={{ mt: 1, fontSize: "1rem", color: "#333" }}>
+                {/* Caption Below */}
+                <Typography
+                  sx={{
+                    mt: 1,
+                    fontSize: "1rem",
+                    color: "#333",
+                    textAlign: "center",
+                  }}
+                >
                   {item.caption}
                 </Typography>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+              </Box>
+            ))}
+        </Box>
+
+        {/* Right Button */}
+        <IconButton
+          onClick={moveRight}
+          sx={{
+            position: "absolute",
+            right: 10,
+            zIndex: 10,
+            color: "#fff",
+            bgcolor: "#00000080",
+            "&:hover": { bgcolor: "#000" },
+          }}
+        >
+          <ArrowForwardIosIcon />
+        </IconButton>
       </Box>
     </Box>
   );
