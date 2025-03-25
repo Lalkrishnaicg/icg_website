@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
                 bottom: 0,
                 left: 0,
                 zIndex: 1000,
-                display: "flex",
+                display: { md: "flex", xs: "none" },
                 justifyContent: "center",
               }}
             >

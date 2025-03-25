@@ -9,11 +9,11 @@ const Footer = () => {
         mt: 2,
         color: "black",
         py: 1,
-        px: 14, // Added padding for spacing
+        px: { md: 14, xs: 3 }, // Added padding for spacing
       }}
     >
       <Stack
-        direction={{ xs: "column", sm: "row" }}
+        direction={{ xs: "row", sm: "row" }}
         spacing={2}
         justifyContent="space-between"
         alignItems="flex-start"

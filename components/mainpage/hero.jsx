@@ -33,7 +33,14 @@ const Hero = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+    <Box
+      sx={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        //    bgcolor: "#fbf9f9",
+      }}
+    >
       <Box>
         <Container
           maxWidth="lg"
@@ -82,6 +89,7 @@ const Hero = () => {
                     lineHeight: { md: 1.1, xs: 1.2 },
 
                     color: "#1B1B1B",
+                    // color: "white",
                   }}
                 >
                   Maze Of Obstacles,{" "}

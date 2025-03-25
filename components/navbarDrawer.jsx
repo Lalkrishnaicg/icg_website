@@ -19,6 +19,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import SendIcon from "@mui/icons-material/Send";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"; // Back icon for subcategory drawer
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const sections = [
   {
@@ -26,11 +27,11 @@ const sections = [
     sub_headings: [
       {
         title: "Finance",
-        // sub_categories: [
-        //   "Investment Banking",
-        //   "Wealth Management",
-        //   "Tax Advisory",
-        // ],
+        sub_categories: [
+          "Investment Banking",
+          "Wealth Management",
+          "Tax Advisory",
+        ],
       },
       {
         title: "Consulting",
@@ -83,15 +84,18 @@ const sections = [
 ];
 
 const NavbarDrawer = ({ open, toggleDrawer }) => {
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down("sm"));
   const [selectedService, setSelectedService] = useState(null);
   const [selectedSubCategories, setSelectedSubCategories] = useState([]);
   const [subDrawerOpen, setSubDrawerOpen] = useState(false);
 
   const handleOpenSubDrawer = (service) => {
-    setSelectedService(service);
+    // setSelectedService(service);
     setSubDrawerOpen(true);
   };
 
+  console.log("its-->", subDrawerOpen);
   const handleCloseSubDrawer = () => {
     setSubDrawerOpen(false);
   };
@@ -101,6 +105,7 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
     // Example:
     // navigate(`/services/${page}`);
   };
+  console.log("title-->", selectedService);
   return (
     <>
       <Drawer
@@ -229,7 +234,7 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                       sx={{
                         p: 1,
                         borderBottom: "2px solid #ddd",
-                        fontSize: 22,
+                        fontSize: 24,
                       }}
                     >
                       {category.main_heading}
@@ -246,6 +251,7 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                           onClick={() => {
                             setSelectedService(service.title);
                             setSelectedSubCategories(service.sub_categories);
+                            handleOpenSubDrawer();
                           }}
                           sx={{
                             py: 1,
@@ -275,7 +281,7 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                         >
                           <ListItemText
                             primary={
-                              <Typography sx={{ fontSize: "1.2rem", pl: 2 }}>
+                              <Typography sx={{ fontSize: "1.3rem", pl: 2 }}>
                                 {service.title}
                               </Typography>
                             }
@@ -427,56 +433,103 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
           </Grid>
         </Grid>
       </Drawer>
-      <Drawer
-        anchor="right"
-        open={subDrawerOpen}
-        onClose={handleCloseSubDrawer}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "white",
-            display: "flex",
-            flexDirection: "column",
-            color: "black",
-          },
-        }}
-      >
-        {/* Subcategory Header */}
-        <Box
+      {isXs && (
+        <Drawer
+          anchor="right"
+          open={subDrawerOpen}
+          onClose={handleCloseSubDrawer}
           sx={{
-            p: 2,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            "& .MuiDrawer-paper": {
+              width: "100vw",
+              height: "100vh",
+              backgroundColor: "white",
+              display: "flex",
+              flexDirection: "column",
+              color: "black",
+            },
           }}
         >
-          <IconButton onClick={handleCloseSubDrawer}>
-            <ArrowBackIcon />
-          </IconButton>
-          <Typography variant="h6">{selectedService?.title}</Typography>
-          <IconButton onClick={handleCloseSubDrawer}>
-            <CloseIcon />
-          </IconButton>
-        </Box>
+          <Box
+            sx={{
+              p: 2,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <IconButton onClick={handleCloseSubDrawer} sx={{ color: "black" }}>
+              <ArrowBackIcon />
+            </IconButton>
+            <Typography variant="h6" sx={{ color: "black" }}>
+              {selectedService}
+            </Typography>
+            <IconButton onClick={handleCloseSubDrawer} sx={{ color: "black" }}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
 
-        {/* Subcategory List */}
-        <List>
-          {selectedService?.sub_categories?.map((subcategory) => (
-            <Link
-              key={subcategory}
-              href={`/services/${subcategory
-                .toLowerCase()
-                .replace(/\s+/g, "-")}`}
-              passHref
-            >
-              <ListItem button onClick={handleCloseSubDrawer}>
-                <ListItemText primary={subcategory} />
-              </ListItem>
-            </Link>
-          ))}
-        </List>
-      </Drawer>
+          <List
+            sx={{
+              border: "1px solid",
+              textAlign: "center",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {selectedSubCategories.length > 0 && (
+              <>
+                <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
+                  Sub-Categories:
+                </Typography>
+                <List>
+                  {selectedSubCategories.map((subCategory, index) => (
+                    <Link
+                      key={subCategory}
+                      href={`/${selectedService}/${subCategory
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
+                      passHref
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      <ListItem
+                        key={index}
+                        sx={{
+                          pl: 2, // Default padding
+                          //    transition: "all 0.3s ease-in-out", // Smooth transition effect
+                          "&:hover, &:focus": {
+                            bgcolor: "#cfe8fc",
+                            border: "1px solid #008cff",
+                            textShadow: "0 0 10px #ffffff",
+                            boxShadow:
+                              "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff",
+                            pl: 4, // Increased padding on hover
+                            pr: 4, // Optional: Add right padding as well
+                            width: 300,
+                            "& .arrow-icon": {
+                              opacity: 1, // Show on hover
+                              color: "black",
+                            },
+                          },
+                        }}
+                        // button
+                        // onClick={() => handleNavigation(subCategory)}
+                      >
+                        <ListItemText
+                          primary={
+                            <Typography sx={{ fontSize: "1.1rem" }}>
+                              {subCategory}
+                            </Typography>
+                          }
+                        />
+                      </ListItem>
+                    </Link>
+                  ))}
+                </List>
+              </>
+            )}
+          </List>
+        </Drawer>
+      )}
     </>
   );
 };

@@ -1,6 +1,5 @@
 import Header from "@/components/mainpage/header";
 import Hero from "@/components/mainpage/hero";
-
 import Footer from "@/components/mainpage/footer";
 import FooterDetailed from "@/components/mainpage/footerDetails";
 import LoaderPage from "@/components/loaderPage";
@@ -12,7 +11,6 @@ import ExpertServices from "@/components/mainpage/expertServices";
 import AssistSection from "@/components/mainpage/assistSection";
 import Heiglight from "@/components/mainpage/heighlight";
 import TopHeader from "@/components/mainpage/topHeader";
-import { Box } from "@mui/material";
 import EntrepreneurSection from "@/components/mainpage/entrepreneurSection";
 import CarouselSection from "@/components/mainpage/carouselSection";
 import Insights from "@/components/mainpage/insights";

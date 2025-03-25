@@ -107,8 +107,8 @@ const FooterDetails = () => {
             {/* Left Text */}
             <Typography
               sx={{
-                fontSize: 36,
-                textAlign: "left",
+                fontSize: { md: 36, xs: 28 },
+                textAlign: { md: "left", xs: "center" },
                 width: { xs: "100%", md: "33%" },
                 mb: { xs: 2, md: 0 },
               }}
@@ -134,15 +134,31 @@ const FooterDetails = () => {
 
             {/* Right Assistance Section */}
             <Box sx={{ textAlign: "start", width: { xs: "100%", md: "33%" } }}>
-              <Typography sx={{ fontSize: 18, fontWeight: 600, mb: 1 }}>
+              <Typography
+                sx={{
+                  fontSize: 18,
+                  fontWeight: 600,
+                  mb: 1,
+                  textAlign: { xs: "center" },
+                  textDecoration: "underline", // Added underline
+                }}
+              >
                 We Assist You
               </Typography>
-              <Typography sx={{}}>
+
+              <Typography sx={{ px: { md: 0, xs: 4 } }}>
                 We appreciate the chance to engage with you. Feel free to share
                 your inquiries and feedback—our dedicated professionals are here
                 to assist you.
               </Typography>
-              <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  mt: 2,
+                  px: { xs: 2 },
+                }}
+              >
                 <Button
                   variant="contained"
                   sx={{
@@ -186,7 +202,12 @@ const FooterDetails = () => {
       </Grid>
 
       {/* Footer Main Content */}
-      <Grid item xs={12} md={12} sx={{ py: 3, bgcolor: "white" }}>
+      <Grid
+        item
+        xs={12}
+        md={12}
+        sx={{ py: { md: 3, xs: 0 }, bgcolor: "white" }}
+      >
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Box
             sx={{
@@ -201,56 +222,69 @@ const FooterDetails = () => {
             <Box
               sx={{
                 display: "flex",
-                alignItems: "center",
+                flexDirection: { xs: "column", md: "row" }, // Column for small screens, row for larger screens
+                alignItems: { xs: "center", md: "flex-start" },
                 gap: 2,
-                flex: "0 0 auto",
               }}
             >
+              {/* Logo & Title Section */}
               <Box
-                component="img"
-                src="/assets/icg.png"
-                alt="ICG Logo"
                 sx={{
-                  width: 100,
-                  height: 120,
-                  objectFit: "contain",
-                  borderRadius: 6,
-                }}
-              />
-              <Typography
-                sx={{
-                  fontSize: 18,
-                  fontWeight: 600,
-                  textAlign: "left",
-                  letterSpacing: 2,
-                  lineHeight: 0.9, // Adjust this value to control the line height
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 2,
+                  flex: "0 0 auto",
+                  mt: { xs: 4, md: 0 }, // Moves it down only for small screens
                 }}
               >
-                Irish <br /> Consulting <br /> Group
-              </Typography>
-            </Box>
+                <Box
+                  component="img"
+                  src="/assets/icg.png"
+                  alt="ICG Logo"
+                  sx={{
+                    width: 100,
+                    height: 120,
+                    objectFit: "contain",
+                    borderRadius: 6,
+                  }}
+                />
+                <Typography
+                  sx={{
+                    fontSize: 18,
+                    fontWeight: 600,
+                    textAlign: "left",
+                    letterSpacing: 2,
+                    lineHeight: 0.9,
+                  }}
+                >
+                  Irish <br /> Consulting <br /> Group
+                </Typography>
+              </Box>
 
-            {/* Middle: Business Solutions Text */}
-            <Box
-              sx={{
-                textAlign: "start",
-                flex: 1,
-                mt: 2,
-                lineHeight: 0.7, // Adjust this value to control the line height
-                p: 3,
-              }}
-            >
-              <Typography sx={{ fontSize: 12 }}>
-                Navigate the maze of obstacles with expert business solutions.
-                Our team delivers results-driven strategies, proactive risk
-                mitigation, and innovative guidance to drive your success. We
-                prioritize collaboration, innovation, and integrity, ensuring
-                excellence and transparency in everything we do.
-              </Typography>
+              {/* Middle: Business Solutions Text */}
+              <Box
+                sx={{
+                  textAlign: "start",
+                  flex: 1,
+                  mt: { xs: 6, md: 2 }, // Moves it further down on small screens
+                  lineHeight: 0.7,
+                  p: { md: 3, xs: 3 },
+                }}
+              >
+                <Typography sx={{ fontSize: 12 }}>
+                  Navigate the maze of obstacles with expert business solutions.
+                  Our team delivers results-driven strategies, proactive risk
+                  mitigation, and innovative guidance to drive your success. We
+                  prioritize collaboration, innovation, and integrity, ensuring
+                  excellence and transparency in everything we do.
+                </Typography>
+              </Box>
             </Box>
 
             {/* Right: Social Media Icons */}
-            <Box sx={{ fontSize: 20, textAlign: "right", mt: 4 }}>
+            <Box
+              sx={{ fontSize: 20, textAlign: "right", mt: { md: 4, xs: 0 } }}
+            >
               <Typography sx={{ fontWeight: 600 }}>Let's Go Social</Typography>
               <Box sx={{ display: "flex", gap: 2, mt: 1 }}>
                 <FaFacebookF />
