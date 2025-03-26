@@ -18,6 +18,9 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos"; // Import
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import SendIcon from "@mui/icons-material/Send";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"; // Back icon for subcategory drawer
 import { useMediaQuery, useTheme } from "@mui/material";
 
@@ -78,6 +81,14 @@ const sections = [
       {
         title: "Case Studies",
         sub_categories: ["Successful Strategies", "Client Stories"],
+      },
+    ],
+  },
+  {
+    main_heading: "ICG",
+    sub_headings: [
+      {
+        title: "blogs",
       },
     ],
   },
@@ -419,6 +430,11 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                                   </Typography>
                                 }
                               />
+                              <ListItemIcon
+                                sx={{ minWidth: "auto", color: "black" }}
+                              >
+                                <ChevronRightIcon />
+                              </ListItemIcon>
                             </ListItem>
                           </Link>
                         ))}
@@ -521,6 +537,9 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                             </Typography>
                           }
                         />
+                        <ListItemIcon sx={{ minWidth: "auto", color: "black" }}>
+                          <ChevronRightIcon />
+                        </ListItemIcon>
                       </ListItem>
                     </Link>
                   ))}

@@ -88,7 +88,7 @@ const CarouselSection = () => {
             left: 10,
             zIndex: 10,
             color: "#fff",
-            bgcolor: "#00000080",
+            bgcolor: "#ff1a1a",
             "&:hover": { bgcolor: "#000" },
           }}
         >
@@ -103,7 +103,7 @@ const CarouselSection = () => {
             gap: "10px",
             width: "100%",
             textAlign: "center",
-            overflow: "hidden",
+            px: { md: 0, xs: 3 },
           }}
         >
           {images
@@ -154,7 +154,7 @@ const CarouselSection = () => {
             right: 10,
             zIndex: 10,
             color: "#fff",
-            bgcolor: "#00000080",
+            bgcolor: "#ff1a1a",
             "&:hover": { bgcolor: "#000" },
           }}
         >

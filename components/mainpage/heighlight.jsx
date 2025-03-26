@@ -221,74 +221,94 @@ const Heiglight = () => {
               bgcolor: "#fff",
               overflow: "hidden",
               borderRadius: 4,
+              display: "flex",
+              flexDirection: "column",
             }}
           >
             <Typography variant="h5" fontWeight="bold" gutterBottom>
               Latest Blogs
             </Typography>
 
-            {/* Horizontal Scroll Wrapper */}
+            {/* Blog Container */}
             <Box
               sx={{
                 display: "flex",
                 gap: 2,
                 overflowX: "hidden",
                 width: "100%",
+                flexGrow: 1, // Makes content fill space
               }}
             >
-              {blogs
-                .slice(visibleIndex, visibleIndex + 2)
-                .map((blog, index) => (
-                  <Card
-                    key={blog.id}
+              {blogs.slice(visibleIndex, visibleIndex + 2).map((blog) => (
+                <Card
+                  key={blog.id}
+                  sx={{
+                    minWidth: 300,
+                    transition: "all 0.3s ease-in-out",
+                    overflow: "hidden",
+                    bgcolor: "white",
+                    color: "black",
+                    flexShrink: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
                     sx={{
-                      minWidth: index === 0 ? 300 : 100, // First blog full, next 20%
-                      transition: "all 0.3s ease-in-out",
-                      overflow: "hidden",
-                      flexShrink: 0,
-                      bgcolor: "white",
+                      width: { md: "100%" },
+                      height: 300,
+                      objectFit: "cover",
+                    }}
+                    image={blog.image}
+                    alt={blog.title}
+                  />
+                  <CardContent
+                    sx={{
+                      flexGrow: 1, // Ensures equal height for all cards
                       color: "black",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      maxWidth: { xs: "100%", sm: "100%" }, // Limits width on mobile
+                      //   mx: "auto", // Centers content
+                      px: { xs: 1, sm: 2 }, // Adjusts padding for better spacing
+                      textAlign: "left",
+                      width: { xs: "300px" },
                     }}
                   >
-                    <CardMedia
-                      component="img"
-                      sx={{ width: "100%", height: 350, objectFit: "cover" }}
-                      image={blog.image}
-                      alt={blog.title}
-                    />
-                    <CardContent
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
                       sx={{
-                        display: index === 0 ? "block" : "none",
                         color: "black",
+                        fontSize: { xs: "1rem", sm: "1.25rem" }, // Adjusts font size on mobile
                       }}
                     >
-                      <Typography
-                        variant="h6"
-                        fontWeight="bold"
-                        sx={{ color: "black" }}
-                      >
-                        {blog.title}
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: "black" }}>
-                        {blog.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                ))}
+                      {blog.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "black",
+                        flexGrow: 1,
+                        fontSize: { xs: "0.85rem", sm: "1rem" }, // Reduces text size on mobile
+                      }}
+                    >
+                      {blog.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
             </Box>
 
-            {/* View More Button */}
+            {/* View More Button - Always Centered */}
             {visibleIndex + 1 < blogs.length && (
               <Box sx={{ textAlign: "center", mt: 2 }}>
-                {/* <Button variant="contained" onClick={handleViewMore}>
-                  View More
-                </Button> */}
                 <Button
-                  id="btn"
                   onClick={handleViewMore}
                   variant="contained"
                   sx={{
-                    opacity: 1,
                     padding: "10px 20px",
                     textTransform: "uppercase",
                     borderRadius: "16px",
@@ -299,19 +319,15 @@ const Heiglight = () => {
                     cursor: "pointer",
                     border: "1px solid #ffffff80",
                     transition: "0.5s ease",
-                    userSelect: "none",
                     "&:hover, &:focus": {
                       color: "#ffffff",
                       background: "#008cff",
                       border: "1px solid #008cff",
-                      textShadow:
-                        "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
-
-                      boxShadow:
-                        "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
+                      textShadow: "0 0 30px #ffffff, 0 0 100px #ffffff",
+                      boxShadow: "0 0 10px #008cff",
                     },
                     "&:hover .icon": {
-                      transform: "rotate(-90deg)", // Rotates the icon upwards
+                      transform: "rotate(-90deg)",
                     },
                   }}
                   endIcon={
