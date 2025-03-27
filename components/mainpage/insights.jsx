@@ -44,8 +44,8 @@ const Insights = () => {
             textAlign: "center",
           }}
         >
-          Learn more about our core areas of expertise by selecting your topic
-          of interest.
+          Have you at any point thought why so many businesses in India close
+          down despite having a great product or service?
         </Typography>
 
         <Box
@@ -99,7 +99,7 @@ const Insights = () => {
               />
             }
           >
-            Watch the video
+            Ask Your thought
           </Button>
         </Box>
       </Grid>

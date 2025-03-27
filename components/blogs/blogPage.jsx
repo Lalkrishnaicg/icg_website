@@ -83,7 +83,7 @@ export default function BlogList() {
   );
 
   return (
-    <Grid container spacing={3} sx={{ padding: 3 }}>
+    <Grid container spacing={3} sx={{ px: 3 }}>
       {/* Categories for Mobile (Fixed & Scrollable) */}
       <Grid
         item

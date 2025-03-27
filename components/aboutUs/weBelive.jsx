@@ -8,18 +8,18 @@ const WeBelieve = () => {
       title: "Innovation",
       description:
         "We believe in continuous innovation to stay ahead in the industry.",
-      image: "https://source.unsplash.com/500x500/?innovation,tech",
+      image: "/assets/image_5.png",
     },
     {
       title: "Collaboration",
       description: "Teamwork and partnerships drive our success and growth.",
-      image: "https://source.unsplash.com/500x500/?teamwork,collaboration",
+      image: "/assets/image_8.jpg",
     },
     {
       title: "Integrity",
       description:
         "We maintain transparency and integrity in everything we do.",
-      image: "https://source.unsplash.com/500x500/?integrity,honesty",
+      image: "/assets/image_9.jpg",
     },
   ];
 

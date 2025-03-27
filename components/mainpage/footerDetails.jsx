@@ -41,15 +41,15 @@ const FooterDetails = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            fontStyle: "italic",
+            //  fontStyle: "italic",
             backgroundImage: `url("/assets/contact_us_bg.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >
-          <Typography sx={{ fontSize: 50, fontWeight: 500, mb: 2 }}>
-            Let ICG mind your business
+          <Typography sx={{ fontSize: 50, mb: 2 }}>
+            Contact Our Experts Today For A Free Consultation.
           </Typography>
           <Button
             variant="contained"
@@ -272,11 +272,11 @@ const FooterDetails = () => {
                 }}
               >
                 <Typography sx={{ fontSize: 12 }}>
-                  Navigate the maze of obstacles with expert business solutions.
-                  Our team delivers results-driven strategies, proactive risk
-                  mitigation, and innovative guidance to drive your success. We
-                  prioritize collaboration, innovation, and integrity, ensuring
-                  excellence and transparency in everything we do.
+                  Irish Consulting Group (ICG) is your trusted partner,
+                  dedicated to addressing every aspect of your business
+                  challenges. We provide comprehensive services across both
+                  legal, financial, and HR domains to facilitate your business’s
+                  growth and success.
                 </Typography>
               </Box>
             </Box>

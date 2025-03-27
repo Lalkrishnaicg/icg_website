@@ -92,12 +92,12 @@ const Hero = () => {
                     // color: "white",
                   }}
                 >
-                  Maze Of Obstacles,{" "}
+                  Guiding Your Business{" "}
                   <Box
                     component="span"
                     sx={{ display: { xs: "block", md: "inline" } }}
                   >
-                    Solutions Galore
+                    Towards Growth
                   </Box>
                 </Typography>
 
@@ -112,8 +112,8 @@ const Hero = () => {
                   <Button
                     variant="contained"
                     color="primary"
-                    component={Link}
-                    href="contact-us"
+                    //   component={Link}
+                    // href="contact-us"
                     sx={{
                       border: "2px solid #0606f9",
                       borderRadius: "8px",

@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
             {/* <Header /> */}
             {/* <TopHeader /> */}
             {children}
-            <Box
+            {/* <Box
               sx={{
                 bottom: 0,
                 left: 0,
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
               }}
             >
               <Navbar />
-            </Box>
+            </Box> */}
           </Suspense>{" "}
         </ThemeProviderClient>
       </body>

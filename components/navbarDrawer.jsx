@@ -29,24 +29,32 @@ const sections = [
     main_heading: "Our Services",
     sub_headings: [
       {
-        title: "Finance",
+        title: "Legal Consulting",
         sub_categories: [
-          "Investment Banking",
-          "Wealth Management",
-          "Tax Advisory",
+          "Business Compliance & Regulations",
+          "Legal Documentation & Contracts",
+          "Intellectual Property Protection",
+          "Dispute Resolution & Arbitration",
+          "Regulatory Filings & Licensing",
         ],
       },
       {
-        title: "Consulting",
-        // sub_categories: ["Business Strategy", "IT Consulting", "HR Solutions"],
+        title: "Financial Guidance",
+        sub_categories: [
+          "Business Taxation & Compliance",
+          "Investment & Risk Management",
+          "Bookkeeping & Accounting",
+          "Business Valuation & Funding",
+          "Payroll & Employee Benefits",
+        ],
       },
       {
-        title: "Law",
-        sub_categories: [
-          "Corporate Law",
-          "Intellectual Property",
-          "Litigation",
-        ],
+        title: "Human Resource",
+        // sub_categories: [
+        //   "Corporate Law",
+        //   "Intellectual Property",
+        //   "Litigation",
+        // ],
       },
     ],
   },
@@ -54,17 +62,20 @@ const sections = [
     main_heading: "Our Company",
     sub_headings: [
       {
-        title: "About",
-        sub_categories: ["Mission & Vision", "Our History", "Leadership"],
+        title: "About Us",
+        //  sub_categories: ["Mission & Vision", "Our History", "Leadership"],
+      },
+      {
+        title: "Mission & Vision",
       },
       {
         title: "People",
         // sub_categories: ["Board of Directors", "Advisors", "Staff"],
       },
-      {
-        title: "Offices",
-        sub_categories: ["New York", "London", "Tokyo"],
-      },
+      // {
+      //   title: "Offices",
+      //   //  sub_categories: ["New York", "London", "Tokyo"],
+      // },
     ],
   },
   {
@@ -106,17 +117,14 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
     setSubDrawerOpen(true);
   };
 
-  console.log("its-->", subDrawerOpen);
   const handleCloseSubDrawer = () => {
     setSubDrawerOpen(false);
   };
   const handleNavigation = (page) => {
-    console.log(`Navigating to ${page}`);
     // Use Next.js Router, React Router, or a function to navigate
     // Example:
     // navigate(`/services/${page}`);
   };
-  console.log("title-->", selectedService);
   return (
     <>
       <Drawer
@@ -288,6 +296,7 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "space-between",
+                            // mt: 2,
                           }}
                         >
                           <ListItemText
@@ -413,7 +422,7 @@ const NavbarDrawer = ({ open, toggleDrawer }) => {
                                     "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff",
                                   pl: 4, // Increased padding on hover
                                   pr: 4, // Optional: Add right padding as well
-                                  width: 300,
+                                  width: 500,
                                   "& .arrow-icon": {
                                     opacity: 1, // Show on hover
                                     color: "black",

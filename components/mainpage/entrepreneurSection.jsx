@@ -54,13 +54,14 @@ const EntrepreneurSection = () => {
             mb={2}
             sx={{ fontSize: { md: 38, xs: 24 }, color: "#1B1B1B " }}
           >
-            The Entrepreneurial Journey
+            Entrepreneurship is the most elite and powerful way to turn your
+            visions into reality!{" "}
           </Typography>
-          <Typography variant="body1" sx={{ fontSize: { md: 24, xs: 16 } }}>
-            Entrepreneurship is about innovation, persistence, and vision. It
-            requires dedication to bring ideas to life. Entrepreneurs play a
-            crucial role in shaping industries, overcoming challenges, and
-            driving change.
+          <Typography variant="body1" sx={{ fontSize: { md: 22, xs: 16 } }}>
+            At the ICG, it's our duty to turn your dreams into thriving and
+            successful businesses. Regardless of whether you are a beginner or
+            an established entrepreneur, with our services and expert guidance,
+            you can expect nothing but the best.
           </Typography>
         </Box>
       </Grid>
@@ -79,11 +80,11 @@ const EntrepreneurSection = () => {
           {" "}
           <Box
             component="img"
-            src="/assets/image_1.png"
+            src="/assets/secondImage.jpg"
             alt="Message Bubble Model"
             sx={{
               width: "100%",
-              maxWidth: "600px", // Fixed width for consistency
+              maxWidth: "700px", // Fixed width for consistency
               height: "auto",
               objectFit: "cover",
               borderRadius: "10px",

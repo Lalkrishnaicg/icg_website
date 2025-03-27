@@ -12,6 +12,7 @@ import {
 import { Button, List, ListItem, ListItemText } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { motion } from "framer-motion";
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline"; // Import Play Icon
 
 const Heiglight = () => {
   const blogs = [
@@ -53,7 +54,6 @@ const Heiglight = () => {
               <Paper
                 sx={{
                   p: 2,
-
                   height: 300,
                   bgcolor: "#dde4f0",
                   borderRadius: 6,
@@ -65,9 +65,9 @@ const Heiglight = () => {
                     alignItems: "center",
                     width: "100%",
                     flexWrap: "wrap",
-                    pl: { md: 6, xs: 0 },
-                    pt: 8,
-                    gap: 8,
+                    pl: { md: 0, xs: 0 },
+                    pt: 0,
+                    gap: 4,
                   }}
                 >
                   <Box>
@@ -77,7 +77,51 @@ const Heiglight = () => {
                     </Typography>
                   </Box>
 
-                  <Button
+                  {/* Watch Video Button */}
+                  <Box
+                    sx={{
+                      width: "400px",
+                      height: "270px",
+                      cursor: "pointer",
+                      borderRadius: "8px",
+                      overflow: "hidden",
+                      border: "2px solid #082f54",
+                      position: "relative", // Required for absolute positioning of the icon
+                    }}
+                    component="a"
+                    href="https://youtu.be/h-WnqHw19Pc?si=sBpPcZ1AFo880ZMw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {/* YouTube Thumbnail */}
+                    <img
+                      src="/assets/thumbnail.png"
+                      alt="YouTube Thumbnail"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+
+                    {/* Play Icon Overlay */}
+                    <PlayCircleOutlineIcon
+                      sx={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        fontSize: 80,
+                        color: "white",
+                        opacity: 0.8,
+                        transition: "0.3s",
+                        "&:hover": {
+                          opacity: 1,
+                        },
+                      }}
+                    />
+                  </Box>
+                  {/* <Button
                     id="btn"
                     variant="contained"
                     sx={{
@@ -98,25 +142,19 @@ const Heiglight = () => {
                         border: "1px solid #008cff",
                         textShadow:
                           "0 0 30px #ffffff, 0 0 100px #ffffff, 0 0 1px #ffffff",
-
                         boxShadow:
                           "0 0 1px #008cff, 0 0 0px #008cff, 0 0 2px #008cff, 0 0 0px #008cff",
                       },
-                      "&:hover .icon": {
-                        transform: "rotate(-90deg)",
-                      },
                     }}
-                    endIcon={
-                      <SendIcon
-                        className="icon"
-                        sx={{
-                          transition: "transform 0.3s ease-in-out",
-                        }}
-                      />
-                    }
+                    endIcon={<SendIcon />}
+                    href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Watch the video
-                  </Button>
+                    Watch the Video
+                  </Button> */}
+
+                  {/* YouTube Thumbnail */}
                 </Box>
               </Paper>
             </Grid>
@@ -126,13 +164,14 @@ const Heiglight = () => {
               {/* Image */}
               <Box
                 component="img"
-                src="/assets/image_4.png"
+                src="/assets/coverImage.jpg"
                 alt="Cover"
                 sx={{
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
                   borderRadius: 6,
+                  opacity: 1,
                 }}
               />
 
@@ -148,14 +187,17 @@ const Heiglight = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   flexDirection: "column",
-                  color: "white",
-                  fontSize: "1.9rem",
+                  color: "black",
+                  fontSize: "2.5rem",
                   fontWeight: "bold",
                   // backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional for better text readability
                   borderRadius: 6,
                 }}
               >
-                Dummy Data
+                <Typography sx={{ bgcolor: "white", p: 2 }}>
+                  {" "}
+                  Opportunities don't happen. You create them.
+                </Typography>
               </Box>
 
               {/* Button (Placed separately to avoid overlay effect) */}
@@ -225,7 +267,7 @@ const Heiglight = () => {
               flexDirection: "column",
             }}
           >
-            <Typography variant="h5" fontWeight="bold" gutterBottom>
+            <Typography variant="h5" fontWeight="semi-bold" gutterBottom>
               Latest Blogs
             </Typography>
 
