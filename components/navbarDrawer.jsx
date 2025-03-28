@@ -78,23 +78,23 @@ const sections = [
       // },
     ],
   },
-  {
-    main_heading: "Insights",
-    sub_headings: [
-      {
-        title: "Latest Reports",
-        sub_categories: ["Quarterly Review", "Market Trends", "Industry News"],
-      },
-      {
-        title: "Research & Analysis",
-        sub_categories: ["Economic Research", "Policy Studies"],
-      },
-      {
-        title: "Case Studies",
-        sub_categories: ["Successful Strategies", "Client Stories"],
-      },
-    ],
-  },
+  // {
+  //   main_heading: "Insights",
+  //   sub_headings: [
+  //     {
+  //       title: "Latest Reports",
+  //       sub_categories: ["Quarterly Review", "Market Trends", "Industry News"],
+  //     },
+  //     {
+  //       title: "Research & Analysis",
+  //       sub_categories: ["Economic Research", "Policy Studies"],
+  //     },
+  //     {
+  //       title: "Case Studies",
+  //       sub_categories: ["Successful Strategies", "Client Stories"],
+  //     },
+  //   ],
+  // },
   {
     main_heading: "ICG",
     sub_headings: [

@@ -70,10 +70,26 @@ const PageHeader = () => {
       </Box>
       {/* Close Button */}
       <Link href="/">
-        <IconButton sx={{ color: "black", p: 0.5 }}>
-          {" "}
-          {/* Smaller padding */}
-          <CloseIcon fontSize="small" /> {/* Smaller icon */}
+        <IconButton
+          sx={{
+            bgcolor: "#dde4f0",
+            height: 50,
+            width: 50,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 2,
+            right: 20,
+            "&:hover": { backgroundColor: "red" }, // Fix: Direct hover effect
+            "&:hover svg": { color: "white" }, // Fix: Target `CloseIcon` correctly
+          }}
+        >
+          <CloseIcon
+            sx={{
+              fontSize: 40,
+              color: "#1B1B1B", // Default color
+            }}
+          />
         </IconButton>
       </Link>
     </Box>

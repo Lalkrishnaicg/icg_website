@@ -9,6 +9,8 @@ import Loader from "@/components/loader";
 import { ThemeProviderClient } from "@/components/themeClient";
 import TopHeader from "@/components/mainpage/topHeader";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/mainpage/footer";
+import FooterDetails from "@/components/mainpage/footerDetails";
 
 const k2dFont = K2D({
   subsets: ["latin"],
@@ -40,6 +42,8 @@ export default function RootLayout({ children }) {
             >
               <Navbar />
             </Box> */}
+            <FooterDetails />
+            <Footer />
           </Suspense>{" "}
         </ThemeProviderClient>
       </body>

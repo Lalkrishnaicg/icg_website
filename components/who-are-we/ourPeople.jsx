@@ -95,7 +95,7 @@ const OurPeople = () => {
         <Box sx={{ width: "90%", margin: "auto", p: 2, pt: 7 }}>
           <Grid container spacing={2}>
             {people.map((person, index) => (
-              <Grid item xs={6} md={index < 2 ? 6 : 4} key={person.id}>
+              <Grid item xs={6} md={4} key={person.id}>
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}

@@ -14,6 +14,7 @@ import TopHeader from "@/components/mainpage/topHeader";
 import EntrepreneurSection from "@/components/mainpage/entrepreneurSection";
 import CarouselSection from "@/components/mainpage/carouselSection";
 import Insights from "@/components/mainpage/insights";
+import CardGrid from "@/components/mainpage/cardSection";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
       {/* <GlobalSerivce /> */}
       {/* <QuoteIcg /> */}
       <EntrepreneurSection />
-
+      {/* <CardGrid /> */}
       <CarouselSection />
       <Heiglight />
 
@@ -37,8 +38,6 @@ export default function Home() {
       {/* </Box> */}
       {/* <AssistSection /> */}
       <Insights />
-      <FooterDetailed />
-      <Footer />
     </>
   );
 }
