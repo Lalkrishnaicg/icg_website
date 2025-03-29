@@ -48,7 +48,7 @@ const FooterDetails = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <Typography sx={{ fontSize: 50, mb: 2 }}>
+          <Typography sx={{ fontSize: { md: 50, xs: 30 }, mb: 2 }}>
             Contact Our Experts Today For A Free Consultation.
           </Typography>
           <Button

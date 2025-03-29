@@ -1,113 +1,114 @@
 import React from "react";
 import Link from "next/link";
-import { Box, Card, Typography } from "@mui/material";
+import {
+  Grid,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  Typography,
+} from "@mui/material";
 
 const cards = [
   {
     id: 1,
-    text: "Card 1",
-    area: "card1",
+    text: "HR Planning",
     image: "/assets/image_1.png",
-    page: "page1",
+    page: "icg/hr/hrPlanning",
   },
   {
     id: 2,
-    text: "Card 2",
-    area: "card2",
+    text: "HR Policies & Statutory Compliance",
     image: "/assets/image_2.png",
-    page: "page2",
+    page: "icg/hr/hrPolicy",
   },
-  { id: 3, text: "Card 3", area: "card3", page: "page3" },
-  { id: 4, text: "Card 4", area: "card4", page: "page4" },
   {
-    id: 5,
-    text: "Card 5",
-    area: "card5",
+    id: 3,
+    text: "Payroll Administration",
     image: "/assets/image_3.png",
-    page: "page5",
+    page: "page3",
   },
-  { id: 6, text: "Card 6", area: "card6", page: "page6" },
+  {
+    id: 4,
+    text: "Recruitment & Talent Acquisition",
+    image: "/assets/image_4.png",
+    page: "page4",
+  },
 ];
 
-const CustomCard = ({ text, area, image, page }) => {
+const CustomCard = ({ text, image, page }) => {
   return (
-    <Box sx={{ gridArea: area }}>
-      <Link href={`/${page}`} passHref>
-        <Card
+    <Link href={`/${page}`} passHref>
+      <Card
+        sx={{
+          position: "relative",
+          width: "100%",
+          cursor: "pointer",
+          overflow: "hidden",
+          "&:hover .overlay": {
+            height: "100%",
+          },
+        }}
+      >
+        {image && (
+          <CardMedia
+            component="img"
+            image={image}
+            alt={text}
+            sx={{
+              width: "100%",
+              height: "auto",
+              objectFit: "cover",
+            }}
+          />
+        )}
+        <CardActionArea
+          className="overlay"
           sx={{
-            backgroundColor: image ? "transparent" : "#898989",
-            color: "#ccc",
-            width: 390,
-            height: 230,
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            height: "20%",
+            bgcolor: "rgba(0, 0, 0, 0.6)",
+            color: "white",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            transition: "height 0.3s ease-in-out",
             textAlign: "center",
-            position: "relative",
-            overflow: "hidden",
-            cursor: "pointer",
-            "&:hover, &:focus": {
-              color: "black",
-              bgcolor: "white",
-            },
           }}
         >
-          {image && (
-            <img
-              src={image}
-              alt="Card Cover"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                position: "absolute",
-                top: 0,
-                left: 0,
-                borderRadius: "4px",
-                zIndex: 1,
-              }}
-            />
-          )}
-          <Typography variant="h6" sx={{ position: "relative", zIndex: 1 }}>
-            {text}
-          </Typography>
-        </Card>
-      </Link>
-    </Box>
+          <CardContent>
+            <Typography variant="h6">{text}</Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </Link>
   );
 };
 
 const CardGrid = () => {
   return (
-    <Box
-      sx={{
-        px: 18,
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gridTemplateRows: "auto",
-        gridTemplateAreas: `
-          "card6    .        card1"    
-          "card2    card3    .     "   
-          "card4    .        card5"    
-        `,
-        gap: 5,
-        justifyContent: "center",
-        alignItems: "center",
-        pt: 5,
-        py: 5,
-        bgcolor: "#0d0c22",
-      }}
+    <Grid
+      container
+      spacing={3}
+      justifyContent="center"
+      sx={{ px: { xs: 2, sm: 3, md: 12 }, pt: 5, pb: 5, bgcolor: "#0d0c22" }}
     >
       {cards.map((card) => (
-        <CustomCard
+        <Grid
+          item
           key={card.id}
-          text={card.text}
-          area={card.area}
-          image={card.image}
-          page={card.page}
-        />
+          xs={12} // 1 column on extra-small screens (mobile devices)
+          sm={6} // 2 columns on small screens and up (tablets and desktops)
+          display="flex"
+          justifyContent="center"
+        >
+          <CustomCard {...card} />
+        </Grid>
       ))}
-    </Box>
+    </Grid>
   );
 };
 

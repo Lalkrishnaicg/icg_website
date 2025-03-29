@@ -54,7 +54,7 @@ const Heiglight = () => {
               <Paper
                 sx={{
                   p: 2,
-                  height: 300,
+                  height: { md: 300, xs: 400 },
                   bgcolor: "#dde4f0",
                   borderRadius: 6,
                 }}
@@ -80,8 +80,9 @@ const Heiglight = () => {
                   {/* Watch Video Button */}
                   <Box
                     sx={{
+                      // pt: -6,
                       width: "400px",
-                      height: "270px",
+                      height: { md: "270px", xs: "250px" },
                       cursor: "pointer",
                       borderRadius: "8px",
                       overflow: "hidden",
@@ -160,7 +161,11 @@ const Heiglight = () => {
             </Grid>
 
             {/* Bottom Left Section */}
-            <Grid item xs={12} sx={{ height: 300, position: "relative" }}>
+            <Grid
+              item
+              xs={12}
+              sx={{ height: 300, position: "relative", pt: 9 }}
+            >
               {/* Image */}
               <Box
                 component="img"
