@@ -26,13 +26,13 @@ const cards = [
     id: 3,
     text: "Payroll Administration",
     image: "/assets/image_3.png",
-    page: "page3",
+    page: "icg/hr/payRollAdministration",
   },
   {
     id: 4,
     text: "Recruitment & Talent Acquisition",
     image: "/assets/image_4.png",
-    page: "page4",
+    page: "icg/hr/recruitment",
   },
 ];
 
