@@ -17,16 +17,16 @@ export const createCustomTheme = (mode) =>
     palette: {
       mode,
       primary: {
-        main: mode === "dark" ? "#90caf9" : "#ffffff",
-        contrastText: mode === "dark" ? "#ffffff" : "#000000",
+        main: mode === "dark" ? "#faf6f62b" : "#faf6f62b",
+        contrastText: mode === "dark" ? "#faf6f62b" : "#faf6f62b",
       },
       secondary: {
-        main: "#90caf9",
+        main: "#faf6f62b",
       },
-      background: {
-        default: mode === "dark" ? "#121212" : "#f5f5f5",
-        paper: mode === "dark" ? "#1e1e1e" : "#ffffff",
-      },
+      // background: {
+      //   default: mode === "dark" ? "#121212" : "#f5f5f5",
+      //   paper: mode === "dark" ? "#1e1e1e" : "#ffffff",
+      // },
       text: {
         //  primary: mode === "dark" ? "#ffffff" : "#000000",
         primary: "#1B1B1B", // Set this to your desired text color

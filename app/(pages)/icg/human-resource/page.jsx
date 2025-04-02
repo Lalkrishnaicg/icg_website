@@ -1,4 +1,6 @@
 "use client";
+import { MarqueeDemo } from "@/components/magicui/marqueeDemo";
+// import { Marquee } from "@/components/magicui/marquee";
 import CardGrid from "@/components/mainpage/cardSection";
 import {
   Box,
@@ -13,13 +15,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <Grid
-      container
-      //  spacing={4}
-      alignItems="center"
-      justifyContent="center"
-      sx={{ px: 6 }}
-    >
+    <Grid container alignItems="center" justifyContent="center" sx={{ px: 6 }}>
       <Grid
         item
         xs={12}
@@ -41,7 +37,6 @@ const page = () => {
               lineHeight: { md: 1.4, xs: 1.2 },
 
               color: "#1B1B1B",
-              // color: "white",
             }}
           >
             Human resources
@@ -53,7 +48,6 @@ const page = () => {
             </Box>
           </Typography>
           <Typography
-            //  variant="h6"
             sx={{
               color: "text.secondary",
 
@@ -69,22 +63,7 @@ const page = () => {
               mt: { md: 0, xs: 3 },
               display: { xs: "none", md: "flex" },
             }}
-          >
-            {/* <Button
-              variant="contained"
-              color="primary"
-              //   component={Link}
-              // href="contact-us"
-              sx={{
-                border: "2px solid #0606f9",
-                borderRadius: "8px",
-                borderColor: "#0606f9",
-                backgroundColor: "white",
-              }}
-            >
-              Connect Us
-            </Button> */}
-          </Stack>
+          ></Stack>
         </Box>
       </Grid>
 
@@ -95,28 +74,24 @@ const page = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center", // Ensures vertical alignment
+          alignItems: "center",
         }}
       >
         <Box
           sx={{
-            mt: { md: 0, xs: "5vh" }, // Adjusted for consistency
+            mt: { md: 0, xs: "5vh" },
             height: "420px",
             width: "600px",
             borderRadius: 2,
-            // transform: {
-            //   md: `perspective(1300px) rotateY(${rotationAngle}deg) scale(${zoomScale})`,
-            //   xs: "none",
-            // },
+
             transformOrigin: "center",
             transition: "transform 0.3s ease-out",
             boxShadow: "10px 10px 20px rgba(0,0,0,0.1)",
             overflow: "hidden",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center", // Centering the video inside
-            //  bgcolor: "#0d0c22",
-            backgroundImage: "linear-gradient(to bottom, white, #dde4f0)", // Gradient from white to #dde4f0
+            justifyContent: "center",
+            backgroundImage: "linear-gradient(to bottom, white, #dde4f0)",
           }}
         >
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -138,7 +113,7 @@ const page = () => {
                 brands and people
               </Box>
             </Typography>
-
+            {/* 
             <Box
               sx={{
                 gap: 2,
@@ -163,11 +138,10 @@ const page = () => {
                     width: 200,
                     height: 80,
                     borderRadius: 6,
-                    display: "flex", // Ensures text is centered
-                    justifyContent: "center", // Centers horizontally
-                    alignItems: "center", // Centers vertically
-                    //  boxShadow: 1, // Optional: Adds a subtle shadow
-                    fontWeight: "semi-bold", // Optional: Makes text stand out
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontWeight: "semi-bold",
                   }}
                 >
                   {text}
@@ -200,21 +174,22 @@ const page = () => {
                     width: 150,
                     height: 80,
                     borderRadius: 6,
-                    display: "flex", // Ensures text is centered
-                    justifyContent: "center", // Centers horizontally
-                    alignItems: "center", // Centers vertically
-                    // boxShadow: 2, // Optional: Adds a subtle shadow
-                    fontWeight: "semi-bold", // Optional: Makes text stand out
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontWeight: "semi-bold",
                   }}
                 >
                   {text}
                 </Box>
               ))}
-            </Box>
+            </Box> */}
+            {/* <Marquee /> */}
+            <MarqueeDemo />
           </Box>
         </Box>
       </Grid>
-      <Grid sx={{ pt: 7 }}>
+      <Grid sx={{ pt: 7, textAlign: "center" }}>
         <CardGrid />
       </Grid>
     </Grid>

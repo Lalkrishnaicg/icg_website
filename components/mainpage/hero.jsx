@@ -12,6 +12,7 @@ import Link from "next/link";
 import Navbar from "../navbar";
 import { useEffect, useState } from "react";
 import GetInTouchBox from "../getInTouchBox";
+import { LandingMarquee } from "../magicui/landingMarquee";
 
 const Hero = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -38,24 +39,26 @@ const Hero = () => {
         height: "100vh",
         display: "flex",
         flexDirection: "column",
-        //    bgcolor: "#fbf9f9",
+        // bgcolor: "#faf6f62b",
+        width: "100%",
       }}
     >
-      <Box>
+      <Box sx={{ width: "100%" }}>
+        {/* Removed maxWidth="lg" and added disableGutters */}
         <Container
-          maxWidth="lg"
+          disableGutters
           sx={{
-            flexGrow: 1,
-
+            width: "100%",
+            maxWidth: "100% !important", // Override any inherited maxWidth
             pt: { md: 3, xs: -7 },
           }}
         >
           <Grid
             container
-            spacing={4}
+            //  spacing={4}
             alignItems="center"
             justifyContent="center"
-            sx={{ height: "100vh" }}
+            sx={{ height: "100vh", width: "100%" }}
           >
             <Grid
               item
@@ -66,6 +69,7 @@ const Hero = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 justifyItems: "center",
+                px: { xs: 3, md: 6 }, // Add some padding for the content
               }}
             >
               <Box>
@@ -73,9 +77,10 @@ const Hero = () => {
                   //  variant="h6"
                   sx={{
                     color: "text.secondary",
-                    mb: { md: 4, xs: 0 },
+                    mb: { md: 0, xs: 0 },
                     mt: { md: 0, xs: 15 },
-                    fontSize: { md: 22, xs: 18 },
+                    fontSize: { md: 16, xs: 18 },
+                    fontWeight: "bold",
                   }}
                 >
                   WELCOME TO ICG
@@ -83,13 +88,13 @@ const Hero = () => {
                 <Typography
                   component="h1"
                   sx={{
-                    fontWeight: "semi-bold",
+                    fontWeight: 100,
                     mb: 2,
-                    fontSize: { md: 44, xs: 28 },
-                    lineHeight: { md: 1.1, xs: 1.2 },
-
+                    fontSize: { md: 54, xs: 28 },
+                    lineHeight: { md: 1.3, xs: 1.2 },
                     color: "#1B1B1B",
                     // color: "white",
+                    pr: 4,
                   }}
                 >
                   Guiding Your Business{" "}
@@ -97,33 +102,54 @@ const Hero = () => {
                     component="span"
                     sx={{ display: { xs: "block", md: "inline" } }}
                   >
-                    Towards Growth
+                    Towards{" "}
+                    <i>
+                      <span style={{ fontWeight: "bold" }}>Growth</span>
+                    </i>
                   </Box>
                 </Typography>
-
-                <Stack
-                  direction={{ xs: "column", sm: "row" }}
-                  spacing={2}
+                <Typography
+                  // component="h1"
                   sx={{
-                    mt: { md: 4, xs: 3 },
-                    display: { xs: "none", md: "flex" },
+                    fontWeight: "semi-bold",
+                    mb: 2,
+                    fontSize: { md: 18, xs: 28 },
+                    lineHeight: { md: 1.1, xs: 1.2 },
+                    color: "#1B1B1B",
+                    // color: "white",
                   }}
                 >
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry.
+                </Typography>
+                <Box sx={{ display: "flex", gap: 1, pr: 3, pt: 4 }}>
                   <Button
-                    variant="contained"
-                    color="primary"
-                    //   component={Link}
-                    // href="contact-us"
+                    variant="outlined"
                     sx={{
-                      border: "2px solid #0606f9",
-                      borderRadius: "8px",
-                      borderColor: "#0606f9",
-                      backgroundColor: "white",
+                      color: "black",
+                      border: "2px solid",
+                      borderRadius: 1,
+                      p: 1,
+                      px: 3,
                     }}
                   >
-                    Connect Us
+                    Get Started
                   </Button>
-                </Stack>
+
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      color: "white",
+                      border: "2px solid",
+                      borderRadius: 1,
+                      bgcolor: "black",
+                      p: 1,
+                      px: 3,
+                    }}
+                  >
+                    Get Started
+                  </Button>
+                </Box>
               </Box>
             </Grid>
 
@@ -134,67 +160,54 @@ const Hero = () => {
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center", // Ensures vertical alignment
+                alignItems: "center",
+                width: "100%", // Ensure grid item uses full width
               }}
             >
-              <Box
-                sx={{
-                  mt: { md: 0, xs: "5vh" }, // Adjusted for consistency
-                  height: "420px",
-                  width: "600px",
-                  borderRadius: 2,
-                  transform: {
-                    md: `perspective(1300px) rotateY(${rotationAngle}deg) scale(${zoomScale})`,
-                    xs: "none",
-                  },
-                  transformOrigin: "center",
-                  transition: "transform 0.3s ease-out",
-                  boxShadow: "10px 10px 20px rgba(0,0,0,0.3)",
-                  overflow: "hidden",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center", // Centering the video inside
-                }}
-              >
-                <video
-                  src="/assets/vid/trail_vid2.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  style={{
+              <Box>
+                <Button
+                  // variant="contained"
+                  sx={{
+                    color: "white",
+                    border: "2px solid",
+                    borderRadius: 2,
+                    top: "-13px",
+                    marginTop: "-637px",
+                    marginRight: "68px",
+                    zIndex: 1000,
+                    left: "558px",
                     width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
+                    padding: "7px",
+                    bgcolor: "black",
                   }}
-                />
+                >
+                  Get Started
+                </Button>
               </Box>
+              <LandingMarquee />
             </Grid>
           </Grid>
         </Container>
       </Box>
-
-      <Box
-        sx={{
-          bottom: 0,
-          left: 0,
-          zIndex: 1000,
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Navbar />
-      </Box>
-      <Box
-        sx={{
-          bottom: 0,
-          left: 0,
-          zIndex: 1000,
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <GetInTouchBox />
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{
+            zIndex: 1000,
+          }}
+        >
+          <Navbar />
+        </Box>
+        <Box sx={{ display: "flex", textAlign: "left", pl: -10, zIndex: 1000 }}>
+          <Typography sx={{ color: "black", pr: 5, fontSize: 20, mt: -88 }}>
+            home
+          </Typography>
+          <Typography sx={{ color: "black", pr: 5, fontSize: 20, mt: -88 }}>
+            about
+          </Typography>{" "}
+          <Typography sx={{ color: "black", pr: 5, fontSize: 20, mt: -88 }}>
+            connect
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

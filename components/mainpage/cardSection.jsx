@@ -90,24 +90,38 @@ const CustomCard = ({ text, image, page }) => {
 
 const CardGrid = () => {
   return (
-    <Grid
-      container
-      spacing={3}
-      justifyContent="center"
-      sx={{ px: { xs: 2, sm: 3, md: 12 }, pt: 5, pb: 5, bgcolor: "#0d0c22" }}
-    >
-      {cards.map((card) => (
-        <Grid
-          item
-          key={card.id}
-          xs={12} // 1 column on extra-small screens (mobile devices)
-          sm={6} // 2 columns on small screens and up (tablets and desktops)
-          display="flex"
-          justifyContent="center"
-        >
-          <CustomCard {...card} />
+    <Grid sx={{ bgcolor: "#0d0c22" }}>
+      <Grid
+        container
+        spacing={3}
+        justifyContent="center"
+        sx={{ px: { xs: 2, sm: 3, md: 12 }, pt: 5, pb: 5, bgcolor: "#0d0c22" }}
+      >
+        {/* Grid item for the heading */}
+        <Grid item xs={12}>
+          <Typography
+            align="center"
+            sx={{ fontSize: 80, color: "white", mt: -8 }}
+          >
+            Our service
+          </Typography>
         </Grid>
-      ))}
+
+        {/* Mapping through cards to create grid items */}
+        {cards.map((card) => (
+          <Grid
+            item
+            key={card.id}
+            xs={12} // 1 column on extra-small screens
+            sm={6} // 2 columns on small screens and up
+            md={6} // 3 columns on medium screens and up
+            display="flex"
+            justifyContent="center"
+          >
+            <CustomCard {...card} />
+          </Grid>
+        ))}
+      </Grid>
     </Grid>
   );
 };

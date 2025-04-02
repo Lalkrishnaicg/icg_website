@@ -24,7 +24,7 @@ const GetInTouchBox = () => {
         //  gap: 1,
         cursor: "pointer",
         boxShadow: "0 2px 6px rgba(0, 0, 0, 0.2)",
-        transition: "all 0.3s ease",
+        //    transition: "all 0.3s ease",
         "&:hover": { backgroundColor: "#ff1a1a", color: "white" },
         height: { md: 70, xs: 57 },
       }}

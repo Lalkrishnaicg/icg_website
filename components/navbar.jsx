@@ -31,41 +31,57 @@ const Navbar = () => {
 
   return (
     <Box
+      component={motion.div}
+      animate={{ x: open ? -200 : 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       position="fixed"
       sx={{
         top: { md: 40, xs: 24 },
-        left: { md: 50, xs: 10 },
-        bgcolor: "rgba(255, 255, 255, 0.9)", // Adjust the last value for transparency
-        backdropFilter: "blur(1px)",
+        left: { md: 60, xs: 10 },
+        bgcolor: "rgba(255, 255, 255, 0.6)",
+        backdropFilter: "blur(10px)",
         borderRadius: { md: "20px", xs: "15px" },
-        boxShadow: "0 2px 6px rgba(0, 0, 0, 0.2)",
+        boxShadow:
+          "0px 1px 2px 0px rgba(0,0,0,0.12),0px 2px 6px 0px rgba(0,0,0,0.08)",
       }}
     >
-      {/* Animated Toolbar */}
-      <motion.div
-        animate={{ x: open ? -200 : 0 }} // Moves left when the drawer opens
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-      >
-        <Toolbar sx={{ display: "flex", gap: 0 }}>
-          {/* Menu Button */}
+      <motion.div>
+        <Toolbar
+          sx={{
+            width: "100%",
+            gap: 1,
+            pl: 0,
+            pr: 0,
+            minHeight: { xs: "auto" },
+            padding: "14px !important",
+          }}
+        >
+          {" "}
           <Box
             sx={{
               bgcolor: "#dde4f0",
               display: "flex",
               justifyContent: "center",
-              width: 50,
               borderRadius: { md: 3, xs: 3 },
-              "&:hover": { background: "#ff1a1a" },
+              "&:hover": { background: "#202952" },
             }}
           >
             <IconButton
               color="black"
               onClick={toggleDrawer(true)}
               sx={{
-                fontSize: { md: 32, xs: 20 },
                 color: "black",
-                "&:hover": { backgroundColor: "red" }, // Fix: Direct hover effect
-                "&:hover svg": { color: "white" }, // Fix: Target `CloseIcon` correctly
+                borderRadius: { md: 3, xs: 3 },
+                "&:hover": {
+                  backgroundColor: "#202952",
+                  boxShadow: "none",
+                  borderRadius: 75,
+                },
+                "&:hover svg": { color: "white" },
+                boxShadow: "none",
+                "& .MuiTouchRipple-root": {
+                  display: "none",
+                },
               }}
             >
               <MenuIcon
@@ -77,24 +93,21 @@ const Navbar = () => {
               />
             </IconButton>
           </Box>
-
-          {/* Logo */}
           <Link href="/">
             <Box
               sx={{
-                backgroundImage: `url("/assets/icg.png")`,
+                backgroundImage: `url("/assets/icg_logo.png")`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                width: { md: "80px", xs: "45px" },
-                height: { md: "80px", xs: "50px" },
+                width: { md: "60px", xs: "45px" },
+                height: { md: "35px", xs: "50px" },
               }}
             ></Box>
           </Link>
         </Toolbar>
       </motion.div>
 
-      {/* Full-Screen Drawer */}
       <NavbarDrawer open={open} toggleDrawer={toggleDrawer} />
     </Box>
   );
